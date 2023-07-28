@@ -1,23 +1,14 @@
-import { useState } from 'react';
 import './App.css';
+import Header from './pages/Shared/Header/Header';
+import { Outlet } from 'react-router-dom';
+import Footer from './pages/Shared/Footer/Footer';
 
 function App() {
-	const [count, setCount] = useState(0);
-
 	return (
 		<>
-			<h1 className='text-3xl font-candal'>Vite + React</h1>
-			<div className='card'>
-				<button onClick={() => setCount((count) => count + 1)}>
-					count is {count}
-				</button>
-				<p>
-					Edit <code>src/App.jsx</code> and save to test HMR
-				</p>
-			</div>
-			<p className='read-the-docs font-bree'>
-				Click on the Vite and React logos to learn more
-			</p>
+			<Header />
+			<Outlet />
+			<Footer />
 		</>
 	);
 }
