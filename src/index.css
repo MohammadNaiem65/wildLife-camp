@@ -1,3 +1,38 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+@layer utilities {
+    .title-common{
+        @apply font-candal tracking-tighter text-[#050505]
+    }
+
+    .title-lg{
+        @apply title-common text-5xl
+    }
+
+    .title{
+        @apply title-common text-3xl
+    }
+
+    .title-sm{
+        @apply title-common text-xl
+    }
+
+    .text-normal{
+        @apply font-bree tracking-wide text-[#8C8C8C]
+    }
+
+    .btn{
+        @apply font-candal text-white px-5 py-1 rounded-full duration-300 hover:-translate-y-1
+    }
+
+    .btn-primary{
+        @apply  bg-primary
+    }
+
+    .btn-secondary{
+        @apply  bg-secondary
+    }
+}
