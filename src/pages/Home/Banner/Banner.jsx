@@ -4,11 +4,14 @@ import logoBg from '../../../assets/logo-bg.png';
 import leftRays from '../../../assets/rays-l.png';
 import rightRays from '../../../assets/rays-r.png';
 import shapeWhite from '../../../assets/shape-white.png';
+import { useContext } from 'react';
+import { AuthContext } from '../../../Providers/AuthContextProvider/AuthContextProvider';
 
 const Banner = () => {
+	const { user } = useContext(AuthContext);
 	return (
 		<div
-			className='h-[calc(100dvh+2rem)] text-white relative before:content-[""] before:absolute before:inset-0 before:bg-gradient-to-b before:from-[rgba(0,0,0,0.5)] before:to-[rgba(0,0,0,0.5)] before:z-0'
+			className='h-screen text-white relative before:content-[""] before:absolute before:inset-0 before:bg-gradient-to-b before:from-[rgba(0,0,0,0.5)] before:to-[rgba(0,0,0,0.5)] before:z-0'
 			style={{
 				backgroundImage: `url(${backgroundImage})`,
 				backgroundPosition: 'center',
@@ -27,7 +30,10 @@ const Banner = () => {
 					<Link className='btn btn-primary'>Home</Link>
 					<Link className='btn btn-primary'>Instructors</Link>
 					<Link className='btn btn-primary'>Classes</Link>
-					<Link className='btn btn-primary'>Dashboard</Link>
+					<Link className='btn btn-primary'>Instructors</Link>
+					{
+						
+					}
 				</div>
 				{/* Title */}
 				<div className='relative'>
@@ -36,7 +42,7 @@ const Banner = () => {
 						src={leftRays}
 						alt=''
 					/>
-					<h1 className='title-lg text-white'>WILDLIFE CAMPING</h1>
+					<h1 className='title-lg text-white'>WILDLIFE CAMP</h1>
 					<img
 						className='absolute -top-7 -right-12'
 						src={rightRays}
@@ -55,7 +61,7 @@ const Banner = () => {
 				<Link className='btn-lg -mt-2 bg-secondary'>View Classes</Link>
 			</div>
 			{/* Footer img */}
-			<img className='w-full h-8 absolute bottom-0' src={shapeWhite} />
+			<img className='w-full h-12 absolute bottom-0' src={shapeWhite} />
 		</div>
 	);
 };
