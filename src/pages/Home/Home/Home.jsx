@@ -1,9 +1,9 @@
-import { Link } from "react-router-dom";
+import Banner from '../Banner/Banner';
 
 const Home = () => {
 	return (
-		<div className=' h-32 grid place-items-center text-center'>
-			
+		<div className='relative'>
+			<Banner />
 		</div>
 	);
 };

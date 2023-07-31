@@ -5,19 +5,19 @@
 
 @layer utilities {
     .title-common{
-        @apply font-candal tracking-tighter text-[#050505]
+        @apply font-candal 
     }
 
     .title-lg{
-        @apply title-common text-5xl
+        @apply title-common text-7xl tracking-tighter
     }
 
     .title{
-        @apply title-common text-3xl
+        @apply title-common text-3xl tracking-tight
     }
 
     .title-sm{
-        @apply title-common text-xl
+        @apply title-common text-xl tracking-wide
     }
 
     .text-normal{
@@ -29,10 +29,10 @@
     }
 
     .btn-primary{
-        @apply  bg-primary
+        @apply hover:bg-primary
     }
 
-    .btn-secondary{
-        @apply  bg-secondary
+    .btn-lg{
+        @apply px-8 py-3 text-2xl rounded-full duration-300 hover:-translate-y-5
     }
 }

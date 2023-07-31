@@ -1,7 +1,7 @@
 
 const Header = () => {
     return (
-        <div>
+        <div className="absolute hidden">
             <h1 className="text-center">Welcome to our page</h1>
         </div>
     );
