@@ -31,9 +31,9 @@ const Banner = () => {
 					<Link className='btn btn-primary'>Instructors</Link>
 					<Link className='btn btn-primary'>Classes</Link>
 					<Link className='btn btn-primary'>Instructors</Link>
-					{
-						
-					}
+					{user && (
+						<Link className='btn btn-primary'>Dashboard</Link>
+					)}
 				</div>
 				{/* Title */}
 				<div className='relative'>
