@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import bgImg from '../../../assets/category-div-bg.jpg';
+import bgImg from '../../../assets/div-bg.jpg';
 import { useEffect } from 'react';
 import AClass from '../AClass/AClass';
 
@@ -12,6 +12,7 @@ const FeatureClasses = () => {
 			.then((res) => res.json())
 			.then((data) => setClasses(data));
 	}, []);
+	
 	return (
 		<div className='my-16 relative'>
 			<img

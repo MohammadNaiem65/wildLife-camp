@@ -3,17 +3,20 @@ import Banner from '../Banner/Banner';
 import { MetaContext } from '../../../Providers/MetaContextProvider/MetaContextProvider';
 import FeatureClasses from '../FeatureClasses/FeatureClasses';
 import CTA from '../CTA/CTA';
+import FeatureInstructors from '../FeatureInstructors/FeatureInstructors';
 
 const Home = () => {
 	const { setShowNavbar } = useContext(MetaContext);
 	useEffect(() => {
-		setShowNavbar(false);
+		const unsubscribe = () => setShowNavbar(false);
+		return unsubscribe();
 	}, []);
 	return (
 		<div className='relative'>
 			<Banner />
 			<FeatureClasses />
 			<CTA />
+			<FeatureInstructors/>
 		</div>
 	);
 };

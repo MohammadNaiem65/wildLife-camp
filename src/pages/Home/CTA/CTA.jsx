@@ -6,7 +6,7 @@ import bottomShape from '../../../assets/shape-white.png';
 
 const CTA = () => {
 	return (
-		<div className='h-[90dvh] bg-secondary text-white mt-10 relative flex flex-col justify-center items-center'>
+		<div className='h-[90dvh] bg-secondary text-white mt-28 relative flex flex-col justify-center items-center'>
 			<img
 				className='absolute top-0 -translate-y-3/4'
 				src={topShape}
