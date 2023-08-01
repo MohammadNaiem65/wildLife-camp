@@ -2,6 +2,7 @@ import { useContext, useEffect } from 'react';
 import Banner from '../Banner/Banner';
 import { MetaContext } from '../../../Providers/MetaContextProvider/MetaContextProvider';
 import FeatureClasses from '../FeatureClasses/FeatureClasses';
+import CTA from '../CTA/CTA';
 
 const Home = () => {
 	const { setShowNavbar } = useContext(MetaContext);
@@ -12,6 +13,7 @@ const Home = () => {
 		<div className='relative'>
 			<Banner />
 			<FeatureClasses />
+			<CTA />
 		</div>
 	);
 };

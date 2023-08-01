@@ -21,7 +21,7 @@
     }
 
     .title-sm{
-        @apply font-candal text-xl tracking-wide
+        @apply font-bree text-xl tracking-wide
     }
 
     .text-normal{
