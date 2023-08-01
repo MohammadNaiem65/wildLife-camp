@@ -7,7 +7,6 @@ import ActiveLink from './ActiveLink';
 const Header = () => {
 	const { showNavbar } = useContext(MetaContext);
 	const { user } = useContext(AuthContext);
-	console.log(showNavbar);
 	return (
 		<div
 			className={`h-[6.5rem] w-full px-20 absolute top-0 flex justify-between items-center z-[100] ${

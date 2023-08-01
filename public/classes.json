@@ -1,0 +1,192 @@
+[
+	{
+		"name": "Wildlife Awareness",
+		"id": 105,
+		"instructor_name": "Tom Holland",
+		"instructor_id": 4,
+		"seats": 0,
+		"price": 60,
+		"img": "https://i.ibb.co/55zk5kW/image.png",
+		"attended": 72
+	},
+	{
+		"name": "Basic Navigation",
+		"id": 103,
+		"instructor_name": "John Doe",
+		"instructor_id": 1,
+		"seats": 18,
+		"price": 50,
+		"img": "https://i.ibb.co/WgmnjsG/image.png",
+		"attended": 95
+	},
+	{
+		"name": "Fire Making",
+		"id": 101,
+		"instructor_name": "Michael Johnson",
+		"instructor_id": 3,
+		"seats": 20,
+		"price": 55,
+		"img": "https://i.ibb.co/jHQgWqm/image.png",
+		"attended": 87
+	},
+	{
+		"name": "Campfire Cooking",
+		"id": 112,
+		"instructor_name": "Keanu Reeves",
+		"instructor_id": 6,
+		"seats": 14,
+		"price": 55,
+		"img": "https://i.ibb.co/dQDKBPg/image.png",
+		"attended": 65
+	},
+	{
+		"name": "Plant Medicine",
+		"id": 110,
+		"instructor_name": "Tom Holland",
+		"instructor_id": 4,
+		"seats": 10,
+		"price": 45,
+		"img": "https://i.ibb.co/Kbt5CTk/image.png",
+		"attended": 53
+	},
+	{
+		"name": "Psychology of Survival",
+		"id": 117,
+		"instructor_name": "Robert Downy Jr",
+		"instructor_id": 2,
+		"seats": 12,
+		"price": 45,
+		"img": "https://i.ibb.co/8B0396V/image.png",
+		"attended": 79
+	},
+	{
+		"name": "Weather Prediction",
+		"id": 113,
+		"instructor_name": "John Doe",
+		"instructor_id": 1,
+		"seats": 18,
+		"price": 50,
+		"img": "https://i.ibb.co/ZSSfNHQ/image.png",
+		"attended": 58
+	},
+	{
+		"name": "Knot Tying",
+		"id": 106,
+		"instructor_name": "John Doe",
+		"instructor_id": 1,
+		"seats": 16,
+		"price": 50,
+		"img": "https://i.ibb.co/G2L8gC0/image.png",
+		"attended": 62
+	},
+	{
+		"name": "Shelter Improvisation",
+		"id": 115,
+		"instructor_name": "Keanu Reeves",
+		"instructor_id": 6,
+		"seats": 14,
+		"price": 55,
+		"img": "https://i.ibb.co/b1YHHmJ/image.png",
+		"attended": 71
+	},
+	{
+		"name": "Emergency Signaling",
+		"id": 104,
+		"instructor_name": "Robert Wang",
+		"instructor_id": 5,
+		"seats": 12,
+		"price": 40,
+		"img": "https://i.ibb.co/5GxgvV8/image.png",
+		"attended": 88
+	},
+	{
+		"name": "Basic Fishing",
+		"id": 109,
+		"instructor_name": "Robert Wang",
+		"instructor_id": 5,
+		"seats": 20,
+		"price": 60,
+		"img": "https://i.ibb.co/CWjPL8w/image.png",
+		"attended": 94
+	},
+	{
+		"name": "Rescue and Evacuation Strategies",
+		"id": 119,
+		"instructor_name": "Keanu Reeves",
+		"instructor_id": 6,
+		"seats": 14,
+		"price": 55,
+		"img": "https://i.ibb.co/VqHHzZD/image.png",
+		"attended": 77
+	},
+	{
+		"name": "Cold and Heat Protection",
+		"id": 107,
+		"instructor_name": "John Doe",
+		"instructor_id": 1,
+		"seats": 0,
+		"price": 55,
+		"img": "https://i.ibb.co/tm3vbRQ/image.png",
+		"attended": 50
+	},
+	{
+		"name": "Campsite Hygiene",
+		"id": 108,
+		"instructor_name": "Michael Johnson",
+		"instructor_id": 3,
+		"seats": 20,
+		"price": 55,
+		"img": "https://i.ibb.co/w0q9jKJ/image.png",
+		"attended": 75
+	},
+	{
+		"name": "Primitive Trapping",
+		"id": 114,
+		"instructor_name": "Robert Downy Jr",
+		"instructor_id": 2,
+		"seats": 12,
+		"price": 45,
+		"img": "https://i.ibb.co/FYq9xZr/image.png",
+		"attended": 85
+	},
+	{
+		"name": "Water Collection and Storage",
+		"id": 116,
+		"instructor_name": "Michael Johnson",
+		"instructor_id": 3,
+		"seats": 15,
+		"price": 50,
+		"img": "https://i.ibb.co/26vnDDT/image.png",
+		"attended": 64
+	},
+	{
+		"name": "Finding Fresh Water",
+		"id": 102,
+		"instructor_name": "Robert Downy Jr",
+		"instructor_id": 2,
+		"seats": 12,
+		"price": 45,
+		"img": "https://i.ibb.co/8YSnFPC/image.png",
+		"attended": 57
+	},
+	{
+		"name": "Tracking and Trailing",
+		"id": 118,
+		"instructor_name": "Michael Johnson",
+		"instructor_id": 3,
+		"seats": 20,
+		"price": 55,
+		"img": "https://i.ibb.co/QYsXRxj/image.png",
+		"attended": 93
+	},
+	{
+		"name": "Tool and Weapon Making",
+		"id": 111,
+		"instructor_name": "Tom Holland",
+		"instructor_id": 4,
+		"seats": 0,
+		"price": 60,
+		"img": "https://i.ibb.co/9NCsYW1/image.png",
+		"attended": 82
+	}
+]

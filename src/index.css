@@ -4,8 +4,12 @@
 
 
 @layer utilities {
+    .container{
+        @apply w-4/5 mx-auto my-16
+    }
+
     .title-common{
-        @apply font-candal 
+        @apply font-candal text-center
     }
 
     .title-lg{
@@ -13,11 +17,11 @@
     }
 
     .title{
-        @apply title-common text-3xl tracking-tight
+        @apply title-common text-5xl tracking-tight
     }
 
     .title-sm{
-        @apply title-common text-xl tracking-wide
+        @apply font-candal text-xl tracking-wide
     }
 
     .text-normal{
