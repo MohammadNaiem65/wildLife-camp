@@ -11,6 +11,9 @@ export const routes = createBrowserRouter([
 				path: '/',
 				element: <Home />,
 			},
+			{
+				path: '/classes/class/:id',
+			},
 		],
 	},
 ]);

@@ -1,8 +1,11 @@
-import { Link } from 'react-router-dom';
+import Swal from "sweetalert2";
 
 const AClass = ({ c }) => {
-	const { img, name, instructor_name, seats, attended, price, id } = c;
-	console.log(c);
+	const { img, name, instructor_name, seats, attended, price, id: _id } = c;
+
+	const handleBuyClass = (_id) => {
+		Swal.fire('Success!', 'The purchase was successful!', 'success');
+	};
 	return (
 		<div
 			className={`p-5 font-bree rounded ${
@@ -24,14 +27,13 @@ const AClass = ({ c }) => {
 				<p>
 					Price: <span className='font-semibold'>${price}</span>
 				</p>
-				<Link
-					to={`/class/:${id}`}
+				<button
 					className={`btn ${
 						seats ? 'bg-secondary' : 'bg-yellow-400'
 					}`}
-					onClick={(e) => !seats && e.preventDefault()}>
+					onClick={() => handleBuyClass(_id)}>
 					Buy
-				</Link>
+				</button>
 			</div>
 		</div>
 	);
