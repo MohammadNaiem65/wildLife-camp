@@ -40,10 +40,54 @@ const Carousel = () => {
 			<div className='main-slider h-full text-white font-bree relative overflow-hidden rounded'>
 				<div className='swiper-wrapper'>
 					{/* <!-- Slides --> */}
-					<div className='swiper-slide relative before:content-[""] before:absolute before:inset-0 before:bg-gradient-to-b before:from-transparent before:to-[rgba(0,0,0,0.8)] before:z-0'></div>
-					<div className='swiper-slide relative before:content-[""] before:absolute before:inset-0 before:bg-gradient-to-b before:from-transparent before:to-[rgba(0,0,0,0.8)] before:z-0'></div>
-					<div className='swiper-slide relative before:content-[""] before:absolute before:inset-0 before:bg-gradient-to-b before:from-transparent before:to-[rgba(0,0,0,0.8)] before:z-0'></div>
-					<div className='swiper-slide relative before:content-[""] before:absolute before:inset-0 before:bg-gradient-to-b before:from-transparent before:to-[rgba(0,0,0,0.8)] before:z-0'></div>
+					<div
+						className='swiper-slide relative before:content-[""] before:absolute before:inset-0 before:bg-gradient-to-b before:from-transparent before:to-[rgba(0,0,0,0.8)] before:z-0'
+						style={{
+							backgroundImage: `url(https://i.ibb.co/FhH5gYq/image.png)`,
+							backgroundPosition: 'center',
+							backgroundSize: 'cover',
+							backgroundRepeat: 'no-repeat',
+						}}>
+						<p className='text-2xl absolute bottom-16 z-10'>
+							"Learn new Skills, Make new Friends"
+						</p>
+					</div>
+					<div
+						className='swiper-slide relative before:content-[""] before:absolute before:inset-0 before:bg-gradient-to-b before:from-transparent before:to-[rgba(0,0,0,0.8)] before:z-0'
+						style={{
+							backgroundImage: `url(https://i.ibb.co/pZ47BML/image.png)`,
+							backgroundPosition: 'center',
+							backgroundSize: 'cover',
+							backgroundRepeat: 'no-repeat',
+						}}>
+						<p className='text-2xl absolute bottom-16 z-10'>
+							"Have Fun and Make Great Memories"
+						</p>
+					</div>
+					<div
+						className='swiper-slide relative before:content-[""] before:absolute before:inset-0 before:bg-gradient-to-b before:from-transparent before:to-[rgba(0,0,0,0.8)] before:z-0'
+						style={{
+							backgroundImage: `url(https://i.ibb.co/jg65tSd/image.png)`,
+							backgroundPosition: 'center',
+							backgroundSize: 'cover',
+							backgroundRepeat: 'no-repeat',
+						}}>
+						<p className='text-2xl absolute bottom-16 z-10'>
+							"Get Taste of the Wild"
+						</p>
+					</div>
+					<div
+						className='swiper-slide relative before:content-[""] before:absolute before:inset-0 before:bg-gradient-to-b before:from-transparent before:to-[rgba(0,0,0,0.8)] before:z-0'
+						style={{
+							backgroundImage: `url(https://i.ibb.co/6P8J9j7/image.png)`,
+							backgroundPosition: 'center',
+							backgroundSize: 'cover',
+							backgroundRepeat: 'no-repeat',
+						}}>
+						<p className='text-2xl absolute bottom-16 z-10'>
+							"Discover your Hidden Talents and Passions"
+						</p>
+					</div>
 				</div>
 				{/* <!-- If we need pagination --> */}
 				<div className='swiper-pagination'></div>
