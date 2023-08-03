@@ -1,4 +1,4 @@
-import Swal from "sweetalert2";
+import Swal from 'sweetalert2';
 
 const AClass = ({ c }) => {
 	const { img, name, instructor_name, seats, attended, price, id: _id } = c;
@@ -29,8 +29,9 @@ const AClass = ({ c }) => {
 				</p>
 				<button
 					className={`btn ${
-						seats ? 'bg-secondary' : 'bg-yellow-400'
+						seats ? 'bg-secondary' : 'disabled:bg-yellow-400 disabled:translate-y-0'
 					}`}
+					disabled={seats ? false : true}
 					onClick={() => handleBuyClass(_id)}>
 					Buy
 				</button>

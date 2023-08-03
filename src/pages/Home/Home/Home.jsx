@@ -4,6 +4,7 @@ import { MetaContext } from '../../../Providers/MetaContextProvider/MetaContextP
 import FeatureClasses from '../FeatureClasses/FeatureClasses';
 import CTA from '../CTA/CTA';
 import FeatureInstructors from '../FeatureInstructors/FeatureInstructors';
+import Carousel from '../Carousel/Carousel';
 
 const Home = () => {
 	const { setShowNavbar } = useContext(MetaContext);
@@ -14,9 +15,10 @@ const Home = () => {
 	return (
 		<div className='relative'>
 			<Banner />
+			<Carousel />
 			<FeatureClasses />
 			<CTA />
-			<FeatureInstructors/>
+			<FeatureInstructors />
 		</div>
 	);
 };

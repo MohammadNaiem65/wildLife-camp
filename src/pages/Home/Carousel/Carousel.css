@@ -1,0 +1,41 @@
+.swiper-slide{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.swiper-button-prev,
+.swiper-button-next{
+    width: 3em; 
+    height: 3em; 
+    padding: 0.5em;
+    color: #5B9A42; 
+    background-color: rgb(91 154 66 / 0.3);
+    border-radius: 50%;
+}
+
+.swiper-button-prev{
+    left: 2rem;
+}
+
+.swiper-button-next{
+    right: 2rem;
+}
+
+.swiper-button-prev:hover,
+.swiper-button-next:hover{
+    background-color: rgb(91 154 66 / 0.4);
+}
+
+.swiper-button-prev::after,
+.swiper-button-next::after{
+    content: '';
+}
+
+.swiper-pagination-bullet{
+    background-color: rgb(91 154 66 / 0.9);
+}
+
+.swiper-pagination-bullet-active{
+    background-color: #5B9A42;
+}
