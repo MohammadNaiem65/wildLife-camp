@@ -4,7 +4,7 @@ import Footer from './pages/Shared/Footer/Footer';
 
 function App() {
 	return (
-		<div className='relative'>
+		<div className='h-screen relative flex flex-col justify-between'>
 			<Header />
 			<Outlet />
 			<Footer />

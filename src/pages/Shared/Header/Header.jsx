@@ -9,8 +9,8 @@ const Header = () => {
 	const { user } = useContext(AuthContext);
 	return (
 		<div
-			className={`h-[6.5rem] w-full px-20 absolute top-0 flex justify-between items-center z-[100] ${
-				showNavbar ? 'translate-y-0' : '-translate-y-32'
+			className={`h-[6.5rem] w-full px-20 absolute top-0 left-0 flex justify-between items-center z-[100] ${
+				showNavbar ? 'translate-y-0 bg-slate-700' : '-translate-y-32'
 			}`}>
 			{/* WildLife Camp logo */}
 			<img className='h-20' src={logo} alt='WildLife Camp logo' />

@@ -27,10 +27,10 @@ const Banner = () => {
 				/>
 				{/* Nav Links */}
 				<div className='mt-5 flex gap-x-7'>
-					<Link className='btn btn-primary'>Home</Link>
-					<Link className='btn btn-primary'>Instructors</Link>
-					<Link className='btn btn-primary'>Classes</Link>
-					<Link className='btn btn-primary'>Instructors</Link>
+					<Link to={'/'} className='btn btn-primary'>Home</Link>
+					<Link to={''} className='btn btn-primary'>Instructors</Link>
+					<Link to={''} className='btn btn-primary'>Classes</Link>
+					<Link to={'/login'} className='btn btn-primary'>Login</Link>
 					{user && (
 						<Link className='btn btn-primary'>Dashboard</Link>
 					)}

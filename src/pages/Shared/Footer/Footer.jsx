@@ -30,7 +30,8 @@ const Footer = () => {
 						)}
 					</div>
 				</div>
-				<div className='flex flex-col justify-center items-center'>
+				{/* Center div */}
+				<div className='flex flex-col justify-center items-center -ml-12'>
 					<img className='w-24' src={logo} alt='' />
 					<h3 className='title-sm mt-2'>Wild Life Camp</h3>
 				</div>
