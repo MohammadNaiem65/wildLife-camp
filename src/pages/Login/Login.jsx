@@ -7,6 +7,7 @@ import { AuthContext } from '../../Providers/AuthContextProvider/AuthContextProv
 import Swal from 'sweetalert2';
 
 const Login = () => {
+	// ! Variable definitions
 	const { setShowNavbar } = useContext(MetaContext);
 	const { setUser, setLoggedIn, setLoading, signInWithEmail } =
 		useContext(AuthContext);

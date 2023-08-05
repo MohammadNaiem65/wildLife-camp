@@ -47,6 +47,7 @@ const AuthContextProvider = ({ children }) => {
 		signOut(auth)
 			.then(() => {
 				setLoading(false);
+				setLoggedIn(false);
 				setUser(null);
 				Swal.fire({
 					icon: 'success',

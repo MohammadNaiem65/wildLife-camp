@@ -4,10 +4,16 @@ import { MetaContext } from '../../../Providers/MetaContextProvider/MetaContextP
 import logo from '../../../assets/logo.png';
 import avatar from '../../../assets/avatar.jpg';
 import ActiveLink from './ActiveLink';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
 	const { showNavbar } = useContext(MetaContext);
 	const { user, signOutUser } = useContext(AuthContext);
+
+	// ! Handle log out
+	const handleLogOut = () => {
+		signOutUser();
+	};
 
 	return (
 		<div
@@ -27,14 +33,15 @@ const Header = () => {
 				<ActiveLink to='/classes' className='btn btn-primary py-1'>
 					Classes
 				</ActiveLink>
-				<ActiveLink to='/instructors' className='btn btn-primary py-1'>
-					Instructors
-				</ActiveLink>
-				{user && (
+				{user ? (
 					<ActiveLink
 						to='/dashboard'
 						className='btn btn-primary py-1'>
 						Dashboard
+					</ActiveLink>
+				) : (
+					<ActiveLink to='/login' className='btn btn-primary py-1'>
+						Login
 					</ActiveLink>
 				)}
 			</div>
@@ -50,14 +57,16 @@ const Header = () => {
 					/>
 					<button
 						className='btn btn-primary h-10 bg-primary'
-						onClick={signOutUser}>
+						onClick={handleLogOut}>
 						Log Out
 					</button>
 				</div>
 			) : (
-				<button className='btn btn-primary h-10 bg-secondary'>
+				<Link
+					to={'/login'}
+					className='btn btn-primary h-10 bg-secondary'>
 					Login
-				</button>
+				</Link>
 			)}
 		</div>
 	);

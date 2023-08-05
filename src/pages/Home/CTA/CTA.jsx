@@ -29,7 +29,7 @@ const CTA = () => {
 			{/* Secondary title */}
 			<h3 className='title-sm mt-12'>Come Explore The Great Outdoors</h3>
 			{/* CTA Btn */}
-			<Link className='btn-lg mt-10 bg-primary font-candal'>View Classes</Link>
+			<Link to={'/classes'} className='btn-lg mt-10 bg-primary font-candal'>View Classes</Link>
 			<img
 				className='absolute bottom-0'
 				src={bottomShape}

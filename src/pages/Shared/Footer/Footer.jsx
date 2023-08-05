@@ -5,7 +5,7 @@ import { AuthContext } from '../../../Providers/AuthContextProvider/AuthContextP
 
 const Footer = () => {
 	const { user } = useContext(AuthContext);
-    
+
 	return (
 		<div className='bg-slate-700 text-stone-200 pt-6 pb-3 flex flex-col justify-between items-center'>
 			<div className='w-full h-48 flex justify-evenly items-center'>
@@ -22,11 +22,14 @@ const Footer = () => {
 						<Link to={'/classes'} className=''>
 							Classes
 						</Link>
-						<Link to={'/login'} className=''>
-							Login
-						</Link>
-						{user && (
-							<Link className=''>Dashboard</Link>
+						{user ? (
+							<Link to='/dashboard' className=''>
+								Dashboard
+							</Link>
+						) : (
+							<Link to='/login' className=''>
+								Login
+							</Link>
 						)}
 					</div>
 				</div>
@@ -48,11 +51,14 @@ const Footer = () => {
 						<Link to={'/classes'} className=''>
 							Classes
 						</Link>
-						<Link to={'/login'} className=''>
-							Login
-						</Link>
-						{user && (
-							<Link className=''>Dashboard</Link>
+						{user ? (
+							<Link to='/dashboard' className=''>
+								Dashboard
+							</Link>
+						) : (
+							<Link to='/login' className=''>
+								Login
+							</Link>
 						)}
 					</div>
 				</div>
