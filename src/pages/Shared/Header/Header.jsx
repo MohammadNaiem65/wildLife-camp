@@ -6,7 +6,8 @@ import ActiveLink from './ActiveLink';
 
 const Header = () => {
 	const { showNavbar } = useContext(MetaContext);
-	const { user } = useContext(AuthContext);
+	const { user, signOutUser } = useContext(AuthContext);
+
 	return (
 		<div
 			className={`h-[6.5rem] w-full px-20 absolute top-0 left-0 flex justify-between items-center z-[100] ${
@@ -46,7 +47,9 @@ const Header = () => {
 						alt='WildLife Camp logo'
 						title={user.displayName}
 					/>
-					<button className='btn btn-primary h-10 bg-primary'>
+					<button
+						className='btn btn-primary h-10 bg-primary'
+						onClick={signOutUser}>
 						Log Out
 					</button>
 				</div>

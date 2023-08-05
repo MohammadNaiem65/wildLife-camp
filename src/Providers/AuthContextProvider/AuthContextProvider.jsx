@@ -3,8 +3,10 @@ import {
 	getAuth,
 	createUserWithEmailAndPassword,
 	onAuthStateChanged,
+	signOut,
 } from 'firebase/auth';
 import { app } from '../../firebase/firebase.config';
+import Swal from 'sweetalert2';
 
 // ! Context
 export const AuthContext = createContext({});
@@ -29,10 +31,23 @@ const AuthContextProvider = ({ children }) => {
 				setUser(newUser);
 				setLoggedIn(true);
 				setLoading(false);
-				console.log(newUser);
 			}
 		});
 	}, []);
+
+	// * Sign Out user
+	const signOutUser = () => {
+		setLoading(true);
+		signOut(auth)
+			.then(() => {
+				setLoading(false);
+				setUser(null);
+				Swal.fire('success', 'Success!', 'Logged Out Successfully!');
+			})
+			.catch(() => {
+				Swal.fire('error', 'Error!', 'Something went wrong!');
+			});
+	};
 
 	// * Module scaffolding
 	const authInfo = {
@@ -43,6 +58,7 @@ const AuthContextProvider = ({ children }) => {
 		loading,
 		setLoading,
 		signUpWithEmail,
+		signOutUser,
 	};
 
 	return (
