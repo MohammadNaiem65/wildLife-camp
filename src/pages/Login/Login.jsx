@@ -18,7 +18,6 @@ const Login = () => {
 	const location = useLocation();
 	const from = location.state?.from?.pathname || '/';
 
-	
 	return (
 		<div className='w-1/3 mx-auto mt-44 mb-20 px-10 py-5 bg-secondary/60 font-bree rounded'>
 			<h2 className='text-4xl text-center font-candal'>Login</h2>
@@ -59,13 +58,13 @@ const Login = () => {
 					New to Brainiac Toys?{' '}
 					<Link
 						to='/sign-up'
-						className='text-primary font-candal hover:text-secondary'>
+						className='text-gray-500 underline hover:text-slate-950'>
 						Sign Up
 					</Link>{' '}
 					now.
 				</p>
 				<button
-					className='btn btn-primary block mx-auto mt-7 cursor-pointer'
+					className='btn btn-primary block mx-auto mt-7 font-candal'
 					type='submit'>
 					Login
 				</button>
