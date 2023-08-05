@@ -37,9 +37,9 @@ const AuthContextProvider = ({ children }) => {
 	}, []);
 
 	// ! Sign in user
-	const signInWithEmail = (email, password) =>{
-		return signInWithEmailAndPassword(auth, email, password)
-	}
+	const signInWithEmail = (email, password) => {
+		return signInWithEmailAndPassword(auth, email, password);
+	};
 
 	// * Sign Out user
 	const signOutUser = () => {
@@ -48,7 +48,11 @@ const AuthContextProvider = ({ children }) => {
 			.then(() => {
 				setLoading(false);
 				setUser(null);
-				Swal.fire('success', 'Success!', 'Logged Out Successfully!');
+				Swal.fire({
+					icon: 'success',
+					title: 'Success!',
+					text: 'Logged out Successfully',
+				});
 			})
 			.catch(() => {
 				Swal.fire('error', 'Error!', 'Something went wrong!');

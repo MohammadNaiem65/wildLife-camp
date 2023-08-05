@@ -8,7 +8,7 @@ import { updateProfile } from 'firebase/auth';
 
 const SignUp = () => {
 	// ! Required variables
-	const { signUpWithEmail, setLoggedIn } = useContext(AuthContext);
+	const { signUpWithEmail, setLoggedIn, setUser } = useContext(AuthContext);
 	const navigate = useNavigate();
 
 	// * Handle Sign Up
@@ -43,7 +43,8 @@ const SignUp = () => {
 						photoURL: photo,
 					}).then(() => {
 						setLoggedIn(false);
-						navigate('/');
+						setUser(null);
+						navigate('/login');
 						Swal.fire(
 							'Success!',
 							'Account Created Successfully!',

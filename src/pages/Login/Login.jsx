@@ -39,11 +39,32 @@ const Login = () => {
 				text: 'Your Password must be at least six characters long',
 			});
 		} else {
-			signInWithEmail(email, password).then((userCredential) => {
-				setLoading(false)
-				setLoggedIn(true);
-				setUser(userCredential.user);
-			});
+			signInWithEmail(email, password)
+				.then((userCredential) => {
+					setLoading(false);
+					setLoggedIn(true);
+					setUser(userCredential.user);
+					Swal.fire({
+						icon: 'success',
+						title: 'Success!',
+						text: 'Logged in Successfully',
+					});
+				})
+				.catch((err) => {
+					const e = err.code
+						.split('.')[0]
+						.split('/')[1]
+						.replace(/-/g, ' ');
+
+					const error = e.charAt(0).toUpperCase() + e.slice(1) + '.';
+					Swal.fire({
+						icon: 'error',
+						title: error,
+						text: `${
+							err.code.split('.')[1] ? err.code.split('.')[1] : ''
+						}`,
+					});
+				});
 		}
 	};
 
