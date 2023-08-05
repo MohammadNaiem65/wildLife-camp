@@ -26,7 +26,7 @@ const Footer = () => {
 							Login
 						</Link>
 						{user && (
-							<Link className='btn btn-primary'>Dashboard</Link>
+							<Link className=''>Dashboard</Link>
 						)}
 					</div>
 				</div>
@@ -52,7 +52,7 @@ const Footer = () => {
 							Login
 						</Link>
 						{user && (
-							<Link className='btn btn-primary'>Dashboard</Link>
+							<Link className=''>Dashboard</Link>
 						)}
 					</div>
 				</div>

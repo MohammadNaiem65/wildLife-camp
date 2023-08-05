@@ -4,10 +4,11 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
 import { AuthContext } from '../../Providers/AuthContextProvider/AuthContextProvider';
 import Swal from 'sweetalert2';
+import { updateProfile } from 'firebase/auth';
 
 const SignUp = () => {
 	// ! Required variables
-	const { signUpWithEmail } = useContext(AuthContext);
+	const { signUpWithEmail, setLoggedIn } = useContext(AuthContext);
 	const navigate = useNavigate();
 
 	// * Handle Sign Up
@@ -30,12 +31,18 @@ const SignUp = () => {
 			});
 		} else {
 			signUpWithEmail(email, password)
-				.then(() => {
-					Swal.fire(
-						'Success!',
-						'Account Created Successfully!',
-						'success'
-					);
+				.then((userCredential) => {
+					updateProfile(userCredential.user, {
+						displayName: name,
+						photoURL: photo,
+					}).then(() => {
+						setLoggedIn(false);
+						Swal.fire(
+							'Success!',
+							'Account Created Successfully!',
+							'success'
+						);
+					});
 				})
 				.catch((err) => {
 					const e = err.code
@@ -53,7 +60,6 @@ const SignUp = () => {
 					});
 				});
 		}
-
 	};
 
 	return (

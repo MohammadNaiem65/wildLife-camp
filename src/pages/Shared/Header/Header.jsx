@@ -41,9 +41,10 @@ const Header = () => {
 			{user ? (
 				<div className='flex gap-x-5 items-center'>
 					<img
-						className='h-14 aspect-square object-contain rounded-full ring-2 ring-primary ring-offset-2 ring-offset-[#EFEEEA] '
-						src={logo}
+						className='h-14 aspect-square object-contain rounded-full ring-2 ring-primary ring-offset-2 ring-offset-slate-700 cursor-pointer'
+						src={user.photoURL}
 						alt='WildLife Camp logo'
+						title={user.displayName}
 					/>
 					<button className='btn btn-primary h-10 bg-primary'>
 						Log Out

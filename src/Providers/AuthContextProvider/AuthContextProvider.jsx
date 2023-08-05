@@ -1,5 +1,9 @@
-import { createContext, useState } from 'react';
-import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
+import { createContext, useEffect, useState } from 'react';
+import {
+	getAuth,
+	createUserWithEmailAndPassword,
+	onAuthStateChanged,
+} from 'firebase/auth';
 import { app } from '../../firebase/firebase.config';
 
 // ! Context
@@ -8,6 +12,7 @@ const auth = getAuth(app);
 
 const AuthContextProvider = ({ children }) => {
 	// ! States definition
+	const [loading, setLoading] = useState(false);
 	const [user, setUser] = useState(null);
 	const [loggedIn, setLoggedIn] = useState(false);
 
@@ -16,8 +21,29 @@ const AuthContextProvider = ({ children }) => {
 		return createUserWithEmailAndPassword(auth, email, password);
 	};
 
+	// ! Get user
+	useEffect(() => {
+		setLoading(true);
+		onAuthStateChanged(auth, (newUser) => {
+			if (newUser) {
+				setUser(newUser);
+				setLoggedIn(true);
+				setLoading(false);
+				console.log(newUser);
+			}
+		});
+	}, []);
+
 	// * Module scaffolding
-	const authInfo = { user, setUser, loggedIn, setLoggedIn, signUpWithEmail };
+	const authInfo = {
+		user,
+		setUser,
+		loggedIn,
+		setLoggedIn,
+		loading,
+		setLoading,
+		signUpWithEmail,
+	};
 
 	return (
 		<AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>
