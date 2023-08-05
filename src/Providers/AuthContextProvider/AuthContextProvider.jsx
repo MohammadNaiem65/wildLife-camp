@@ -4,6 +4,7 @@ import {
 	createUserWithEmailAndPassword,
 	onAuthStateChanged,
 	signOut,
+	signInWithEmailAndPassword,
 } from 'firebase/auth';
 import { app } from '../../firebase/firebase.config';
 import Swal from 'sweetalert2';
@@ -23,7 +24,7 @@ const AuthContextProvider = ({ children }) => {
 		return createUserWithEmailAndPassword(auth, email, password);
 	};
 
-	// ! Get user
+	// ! Manage user
 	useEffect(() => {
 		setLoading(true);
 		onAuthStateChanged(auth, (newUser) => {
@@ -34,6 +35,11 @@ const AuthContextProvider = ({ children }) => {
 			}
 		});
 	}, []);
+
+	// ! Sign in user
+	const signInWithEmail = (email, password) =>{
+		return signInWithEmailAndPassword(auth, email, password)
+	}
 
 	// * Sign Out user
 	const signOutUser = () => {
@@ -58,6 +64,7 @@ const AuthContextProvider = ({ children }) => {
 		loading,
 		setLoading,
 		signUpWithEmail,
+		signInWithEmail,
 		signOutUser,
 	};
 

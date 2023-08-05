@@ -3,9 +3,13 @@ import { FaFacebook, FaPinterest, FaApple } from 'react-icons/fa6';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useContext, useEffect } from 'react';
 import { MetaContext } from '../../Providers/MetaContextProvider/MetaContextProvider';
+import { AuthContext } from '../../Providers/AuthContextProvider/AuthContextProvider';
+import Swal from 'sweetalert2';
 
 const Login = () => {
 	const { setShowNavbar } = useContext(MetaContext);
+	const { setUser, setLoggedIn, setLoading, signInWithEmail } =
+		useContext(AuthContext);
 	const navigate = useNavigate();
 
 	// Make the navbar visible
@@ -18,10 +22,35 @@ const Login = () => {
 	const location = useLocation();
 	const from = location.state?.from?.pathname || '/';
 
+	// * Handle Sign In / Login
+	const handleLogin = (e) => {
+		e.preventDefault();
+		setLoading(true);
+
+		const form = e.target;
+		const email = form.email.value;
+		const password = form.password.value;
+
+		if (password.length < 6) {
+			setLoading(false);
+			Swal.fire({
+				icon: 'error',
+				title: 'Error!',
+				text: 'Your Password must be at least six characters long',
+			});
+		} else {
+			signInWithEmail(email, password).then((userCredential) => {
+				setLoading(false)
+				setLoggedIn(true);
+				setUser(userCredential.user);
+			});
+		}
+	};
+
 	return (
 		<div className='w-1/3 mx-auto mt-44 mb-20 px-10 py-5 bg-secondary/60 font-bree rounded'>
 			<h2 className='text-4xl text-center font-candal'>Login</h2>
-			<form className='w-fit mx-auto px-5'>
+			<form className='w-fit mx-auto px-5' onSubmit={handleLogin}>
 				{/* Email */}
 				<>
 					<label

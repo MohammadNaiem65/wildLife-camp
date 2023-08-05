@@ -2,6 +2,7 @@ import { useContext } from 'react';
 import { AuthContext } from '../../../Providers/AuthContextProvider/AuthContextProvider';
 import { MetaContext } from '../../../Providers/MetaContextProvider/MetaContextProvider';
 import logo from '../../../assets/logo.png';
+import avatar from '../../../assets/avatar.jpg';
 import ActiveLink from './ActiveLink';
 
 const Header = () => {
@@ -43,7 +44,7 @@ const Header = () => {
 				<div className='flex gap-x-5 items-center'>
 					<img
 						className='h-14 aspect-square object-contain rounded-full ring-2 ring-primary ring-offset-2 ring-offset-slate-700 cursor-pointer'
-						src={user.photoURL}
+						src={user.photoURL ? user.photoURL : avatar}
 						alt='WildLife Camp logo'
 						title={user.displayName}
 					/>

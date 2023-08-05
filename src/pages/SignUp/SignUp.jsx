@@ -23,11 +23,17 @@ const SignUp = () => {
 		const confirmPassword = form.confirmPassword.value;
 
 		// ! Validate password
-		if (password !== confirmPassword) {
+		if (password.length < 6) {
 			Swal.fire({
 				icon: 'error',
-				title: "Password didn't matched.",
-				text: 'Retype the passwords!',
+				title: 'Error!',
+				text: 'Your Password must be at least six characters long',
+			});
+		} else if (password !== confirmPassword) {
+			Swal.fire({
+				icon: 'error',
+				title: 'Error!',
+				text: "Password didn't matched.",
 			});
 		} else {
 			signUpWithEmail(email, password)
@@ -37,6 +43,7 @@ const SignUp = () => {
 						photoURL: photo,
 					}).then(() => {
 						setLoggedIn(false);
+						navigate('/');
 						Swal.fire(
 							'Success!',
 							'Account Created Successfully!',
