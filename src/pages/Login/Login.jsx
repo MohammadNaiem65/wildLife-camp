@@ -34,7 +34,7 @@ const Login = () => {
 						id='email'
 						name='email'
 						placeholder='Enter your email.'
-						className='w-96 px-3 py-1 outline-primary rounded'
+						className='w-96 px-3 py-1 outline-secondary  rounded'
 						required
 					/>
 				</>
@@ -50,7 +50,7 @@ const Login = () => {
 						id='password'
 						name='password'
 						placeholder='Enter your password.'
-						className='w-96 px-3 py-1 outline-primary rounded'
+						className='w-96 px-3 py-1 outline-secondary  rounded'
 						required
 					/>
 				</>
@@ -58,7 +58,7 @@ const Login = () => {
 					New to Brainiac Toys?{' '}
 					<Link
 						to='/sign-up'
-						className='text-gray-500 underline hover:text-slate-950'>
+						className='text-gray-500 underline hover:text-slate-950 focus:outline-none focus:text-slate-950'>
 						Sign Up
 					</Link>{' '}
 					now.

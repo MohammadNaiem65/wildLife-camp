@@ -1,16 +1,65 @@
 import { FcGoogle } from 'react-icons/fc';
 import { FaFacebook, FaPinterest, FaApple } from 'react-icons/fa6';
 import { Link, useNavigate } from 'react-router-dom';
+import { useContext } from 'react';
+import { AuthContext } from '../../Providers/AuthContextProvider/AuthContextProvider';
+import Swal from 'sweetalert2';
 
 const SignUp = () => {
-
+	// ! Required variables
+	const { signUpWithEmail } = useContext(AuthContext);
 	const navigate = useNavigate();
 
+	// * Handle Sign Up
+	const handleSignUp = (e) => {
+		e.preventDefault();
+		const form = e.target;
+
+		const name = form.name.value;
+		const photo = form.photo.value;
+		const email = form.email.value;
+		const password = form.password.value;
+		const confirmPassword = form.confirmPassword.value;
+
+		// ! Validate password
+		if (password !== confirmPassword) {
+			Swal.fire({
+				icon: 'error',
+				title: "Password didn't matched.",
+				text: 'Retype the passwords!',
+			});
+		} else {
+			signUpWithEmail(email, password)
+				.then(() => {
+					Swal.fire(
+						'Success!',
+						'Account Created Successfully!',
+						'success'
+					);
+				})
+				.catch((err) => {
+					const e = err.code
+						.split('.')[0]
+						.split('/')[1]
+						.replace(/-/g, ' ');
+
+					const error = e.charAt(0).toUpperCase() + e.slice(1) + '.';
+					Swal.fire({
+						icon: 'error',
+						title: error,
+						text: `${
+							err.code.split('.')[1] ? err.code.split('.')[1] : ''
+						}`,
+					});
+				});
+		}
+
+	};
 
 	return (
 		<div className='w-1/3 mx-auto mt-44 mb-20 px-10 py-5  bg-secondary/60 font-bree rounded'>
 			<h2 className='text-4xl text-center font-candal'>Sign Up</h2>
-			<form className='w-fit mx-auto px-5'>
+			<form className='w-fit mx-auto px-5' onSubmit={handleSignUp}>
 				{/* Name */}
 				<>
 					<label
@@ -23,7 +72,7 @@ const SignUp = () => {
 						id='name'
 						name='name'
 						placeholder='Enter your name.'
-						className='w-96 px-3 py-1 outline-primary rounded'
+						className='w-96 px-3 py-1 outline-secondary rounded'
 						required
 					/>
 				</>
@@ -39,7 +88,7 @@ const SignUp = () => {
 						id='photo'
 						name='photo'
 						placeholder='Enter your photo URL.'
-						className='w-96 px-3 py-1 outline-primary rounded'
+						className='w-96 px-3 py-1 outline-secondary rounded'
 						required
 					/>
 				</>
@@ -55,7 +104,7 @@ const SignUp = () => {
 						id='email'
 						name='email'
 						placeholder='Enter your email.'
-						className='w-96 px-3 py-1 outline-primary rounded'
+						className='w-96 px-3 py-1 outline-secondary rounded'
 						required
 					/>
 				</>
@@ -71,7 +120,7 @@ const SignUp = () => {
 						id='password'
 						name='password'
 						placeholder='Enter your password.'
-						className='w-96 px-3 py-1 outline-primary rounded'
+						className='w-96 px-3 py-1 outline-secondary rounded'
 						required
 					/>
 				</>
@@ -87,7 +136,7 @@ const SignUp = () => {
 						id='confirmPassword'
 						name='confirmPassword'
 						placeholder='Confirm your password.'
-						className='w-96 px-3 py-1 outline-primary rounded'
+						className='w-96 px-3 py-1 outline-secondary rounded'
 						required
 					/>
 				</>
@@ -95,7 +144,7 @@ const SignUp = () => {
 					Already have an account?{' '}
 					<Link
 						to='/login'
-						className='text-gray-500 underline hover:text-slate-950'>
+						className='text-gray-500 underline hover:text-slate-950 focus:outline-none focus:text-slate-950 '>
 						Login
 					</Link>{' '}
 					here.

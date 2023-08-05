@@ -1,3 +1,7 @@
+.link:focus{
+    outline: none;
+}
+
 .link::after{
     content: '';
     height: .25rem;
@@ -13,7 +17,8 @@
     transition: transform 300ms;
 }
 
-.link:hover:after{
+.link:hover::after,
+.link:focus::after{
     transform: scaleX(1);
 }
 
