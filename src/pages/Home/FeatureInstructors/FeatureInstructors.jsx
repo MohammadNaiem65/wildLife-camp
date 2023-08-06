@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import leftRays from '../../../assets/rays-l.png';
 import rightRays from '../../../assets/rays-r.png';
-import Instructor from '../Instructor/Instructor';
+import Instructor from '../../Shared/Instructor/Instructor';
 
 const FeatureInstructors = () => {
 	const [instructors, setInstructors] = useState([]);
