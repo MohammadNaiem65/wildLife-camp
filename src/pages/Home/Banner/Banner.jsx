@@ -69,7 +69,7 @@ const Banner = () => {
 					In The Town
 				</h3>
 				{/* CTA Btn */}
-				<Link className='btn-lg -mt-2 bg-secondary'>View Classes</Link>
+				<Link to={'/classes'} className='btn-lg -mt-2 bg-secondary'>View Classes</Link>
 			</div>
 			{/* Footer img */}
 			<img className='w-full h-12 absolute bottom-0' src={shapeWhite} />
