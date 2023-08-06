@@ -8,7 +8,9 @@ import { useContext } from 'react';
 import { AuthContext } from '../../../Providers/AuthContextProvider/AuthContextProvider';
 
 const Banner = () => {
+	// ! Variable definitions
 	const { user } = useContext(AuthContext);
+	
 	return (
 		<div
 			className='h-screen text-white relative before:content-[""] before:absolute before:inset-0 before:bg-gradient-to-b before:from-[rgba(0,0,0,0.5)] before:to-[rgba(0,0,0,0.5)] before:z-0'

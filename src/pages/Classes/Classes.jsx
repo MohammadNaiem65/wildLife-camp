@@ -3,19 +3,25 @@ import leftRays from '../../assets/rays-l.png';
 import rightRays from '../../assets/rays-r.png';
 import { MetaContext } from '../../Providers/MetaContextProvider/MetaContextProvider';
 import AClass from './../Shared/AClass/AClass';
+import { AuthContext } from '../../Providers/AuthContextProvider/AuthContextProvider';
 
 const Classes = () => {
 	// ! Variable definitions
 	const { setShowNavbar } = useContext(MetaContext);
+	const { setLoading } = useContext(AuthContext);
 	const [classes, setClasses] = useState([]);
 
 	// Make the navbar visible
 	useEffect(() => {
 		const unsubscribe = () => {
+			setLoading(true);
 			setShowNavbar(true);
 			fetch('http://localhost:5000/classes')
 				.then((res) => res.json())
-				.then((data) => setClasses(data));
+				.then((data) => {
+					setClasses(data);
+					setLoading(false);
+				});
 		};
 		return unsubscribe();
 	}, []);

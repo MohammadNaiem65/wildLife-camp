@@ -7,11 +7,13 @@ import Classes from '../pages/Classes/Classes';
 import Instructors from '../pages/Instructors/Instructors';
 import Dashboard from '../pages/Dashboard/Dashboard';
 import PrivateRoute from './PrivateRoute';
+import Error from '../pages/Error/Error';
 
 export const routes = createBrowserRouter([
 	{
 		path: '/',
 		element: <App />,
+		errorElement: <Error />,
 		children: [
 			{
 				path: '/',

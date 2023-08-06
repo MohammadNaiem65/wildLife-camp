@@ -8,12 +8,14 @@ import { updateProfile } from 'firebase/auth';
 
 const SignUp = () => {
 	// ! Required variables
-	const { signUpWithEmail, setLoggedIn, setUser } = useContext(AuthContext);
+	const { signUpWithEmail, setLoggedIn, setLoading, setUser } =
+		useContext(AuthContext);
 	const navigate = useNavigate();
 
 	// * Handle Sign Up
 	const handleSignUp = (e) => {
 		e.preventDefault();
+		setLoading(true);
 		const form = e.target;
 
 		const name = form.name.value;
@@ -44,6 +46,7 @@ const SignUp = () => {
 					}).then(() => {
 						setLoggedIn(false);
 						setUser(null);
+						setLoading(false);
 						navigate('/login');
 						Swal.fire(
 							'Success!',

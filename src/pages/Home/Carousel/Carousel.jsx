@@ -8,7 +8,8 @@ import 'swiper/css/autoplay';
 import './Carousel.css';
 
 const Carousel = () => {
-	const swiper = new Swiper('.main-slider', {
+	// ! Swiper instance
+	new Swiper('.main-slider', {
 		loop: true,
 		slidesPerView: 1,
 		centeredSlides: true,
@@ -34,6 +35,7 @@ const Carousel = () => {
 		},
 		modules: [Navigation, Pagination, Autoplay],
 	});
+	
 	return (
 		<div className='w-1/2 h-96 mx-auto my-16 relative'>
 			{/* Main Slider */}

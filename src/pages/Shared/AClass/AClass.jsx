@@ -9,9 +9,16 @@ const AClass = ({ c }) => {
 	return (
 		<div
 			className={`p-5 font-bree rounded duration-300 cursor-pointer hover:-translate-y-2 ${
-				seats ? 'bg-white hover:bg-slate-400 hover:text-stone-100' : 'bg-primary text-stone-100'
+				seats
+					? 'bg-white hover:bg-slate-400 hover:text-stone-100'
+					: 'bg-primary text-stone-100'
 			}`}>
-			<img className='rounded w-full h-56 object-fill' src={img} alt='' />
+			<img
+				className='rounded w-full h-56 object-fill'
+				src={img}
+				alt={`${name}`}
+				loading='lazy'
+			/>
 			<h4 className='title-sm mt-5'>{name}</h4>
 			<p>
 				Instructor:{' '}
@@ -29,7 +36,9 @@ const AClass = ({ c }) => {
 				</p>
 				<button
 					className={`btn ${
-						seats ? 'bg-secondary' : 'disabled:bg-yellow-400 disabled:translate-y-0'
+						seats
+							? 'bg-secondary'
+							: 'disabled:bg-yellow-400 disabled:translate-y-0'
 					}`}
 					disabled={seats ? false : true}
 					onClick={() => handleBuyClass(_id)}>

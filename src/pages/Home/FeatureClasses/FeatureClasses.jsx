@@ -1,20 +1,30 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import bgImg from '../../../assets/div-bg.jpg';
 import { useEffect } from 'react';
 import leftRays from '../../../assets/rays-l.png';
 import rightRays from '../../../assets/rays-r.png';
 import AClass from '../../Shared/AClass/AClass';
+import { AuthContext } from '../../../Providers/AuthContextProvider/AuthContextProvider';
 
 const FeatureClasses = () => {
+	// ! Variable definitions
+	const { setLoading } = useContext(AuthContext);
 	const [classes, setClasses] = useState([]);
 
 	// fetch users
 	useEffect(() => {
-		fetch('http://localhost:5000/classes/6')
-			.then((res) => res.json())
-			.then((data) => setClasses(data));
+		const unsubscribe = () => {
+			setLoading(true);
+			fetch('http://localhost:5000/classes/6')
+				.then((res) => res.json())
+				.then((data) => {
+					setClasses(data);
+					setLoading(false);
+				});
+		};
+		unsubscribe();
 	}, []);
-	
+
 	return (
 		<div className='mt-28 mb-16 relative'>
 			<img

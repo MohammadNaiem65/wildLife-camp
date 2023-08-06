@@ -1,16 +1,23 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import leftRays from '../../../assets/rays-l.png';
 import rightRays from '../../../assets/rays-r.png';
 import Instructor from '../../Shared/Instructor/Instructor';
+import { AuthContext } from '../../../Providers/AuthContextProvider/AuthContextProvider';
 
 const FeatureInstructors = () => {
+	// ! Variable definitions
+	const { setLoading } = useContext(AuthContext);
 	const [instructors, setInstructors] = useState([]);
 
 	useEffect(() => {
 		const unsubscribe = () => {
+			setLoading(true);
 			fetch('http://localhost:5000/instructors/6')
 				.then((res) => res.json())
-				.then((data) => setInstructors(data));
+				.then((data) => {
+					setLoading(false);
+					setInstructors(data);
+				});
 		};
 		return unsubscribe();
 	}, []);
@@ -35,7 +42,11 @@ const FeatureInstructors = () => {
 			{/* Instructor List*/}
 			<div className='mt-10 grid grid-cols-3 gap-5'>
 				{instructors.map((instructor) => (
-					<Instructor key={instructor._id} instructor={instructor} />
+					<Instructor
+						key={instructor._id}
+						name={instructor.instructor_name}
+						img={instructor.instructor_image}
+					/>
 				))}
 			</div>
 		</div>

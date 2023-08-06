@@ -5,11 +5,19 @@ import FeatureClasses from '../FeatureClasses/FeatureClasses';
 import CTA from '../CTA/CTA';
 import FeatureInstructors from '../FeatureInstructors/FeatureInstructors';
 import Carousel from '../Carousel/Carousel';
+import { AuthContext } from '../../../Providers/AuthContextProvider/AuthContextProvider';
 
 const Home = () => {
+	// ! Variable definition
 	const { setShowNavbar } = useContext(MetaContext);
+	const { setLoading } = useContext(AuthContext);
+
 	useEffect(() => {
-		const unsubscribe = () => setShowNavbar(false);
+		const unsubscribe = () => {
+			setLoading(true);
+			setShowNavbar(false);
+			setLoading(false);
+		};
 		return unsubscribe();
 	}, []);
 	return (
