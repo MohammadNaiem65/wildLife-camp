@@ -8,7 +8,7 @@ const FeatureClasses = () => {
 
 	// fetch users
 	useEffect(() => {
-		fetch('classes.json')
+		fetch('http://localhost:5000/classes/6')
 			.then((res) => res.json())
 			.then((data) => setClasses(data));
 	}, []);
@@ -24,8 +24,8 @@ const FeatureClasses = () => {
 			<h2 className='title'>Top Classes</h2>
 			{/* Classes */}
 			<div className='w-4/5 mx-auto mt-10 grid grid-cols-3 gap-5'>
-				{classes.slice(0, 6).map((aClass) => (
-					<AClass key={aClass.id} c={aClass} />
+				{classes.map((aClass) => (
+					<AClass key={aClass._id} c={aClass} />
 				))}
 			</div>
 		</div>

@@ -8,7 +8,7 @@ const FeatureInstructors = () => {
 
 	useEffect(() => {
 		const unsubscribe = () => {
-			fetch('instructors.json')
+			fetch('http://localhost:5000/instructors/6')
 				.then((res) => res.json())
 				.then((data) => setInstructors(data));
 		};
@@ -35,7 +35,7 @@ const FeatureInstructors = () => {
 			{/* Instructor List*/}
 			<div className='mt-10 grid grid-cols-3 gap-5'>
 				{instructors.map((instructor) => (
-					<Instructor key={instructor.id} instructor={instructor} />
+					<Instructor key={instructor._id} instructor={instructor} />
 				))}
 			</div>
 		</div>

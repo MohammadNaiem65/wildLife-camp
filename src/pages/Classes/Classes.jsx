@@ -13,7 +13,7 @@ const Classes = () => {
 
 	return (
 		<div className='container'>
-			<h2 className='text-4xl text-center font-candal'>Login</h2>
+			<h2 className='text-4xl text-center font-candal'>Classes</h2>
 		</div>
 	);
 };

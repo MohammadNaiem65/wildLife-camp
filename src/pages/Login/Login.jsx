@@ -50,6 +50,7 @@ const Login = () => {
 						title: 'Success!',
 						text: 'Logged in Successfully',
 					});
+					navigate(from);
 				})
 				.catch((err) => {
 					const e = err.code
