@@ -18,6 +18,7 @@ const AuthContextProvider = ({ children }) => {
 	const [loading, setLoading] = useState(true);
 	const [loggedIn, setLoggedIn] = useState(false);
 	const [user, setUser] = useState(null);
+	const [role, setRole] = useState(null);
 
 	// * Sign Up user
 	const signUpWithEmail = (email, password) => {
@@ -28,11 +29,18 @@ const AuthContextProvider = ({ children }) => {
 	useEffect(() => {
 		setLoading(true);
 		setLoggedIn(false);
-		onAuthStateChanged(auth, (newUser) => {
-			if (newUser) {
-				setUser(newUser);
-				setLoggedIn(true);
-				setLoading(false);
+		onAuthStateChanged(auth, (existedUser) => {
+			if (existedUser) {
+				fetch(
+					`http://localhost:5000/users/role?email=${existedUser.email}`
+				)
+					.then((res) => res.json())
+					.then((data) => {
+						setUser(existedUser);
+						setRole(data);
+						setLoggedIn(true);
+						setLoading(false);
+					});
 			} else {
 				setUser(null);
 				setLoggedIn(false);
@@ -69,6 +77,8 @@ const AuthContextProvider = ({ children }) => {
 	const authInfo = {
 		user,
 		setUser,
+		role,
+		setRole,
 		loggedIn,
 		setLoggedIn,
 		loading,

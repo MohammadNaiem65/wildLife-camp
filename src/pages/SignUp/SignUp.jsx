@@ -44,6 +44,8 @@ const SignUp = () => {
 						displayName: name,
 						photoURL: photo,
 					}).then(() => {
+						setUser(null);
+						setLoggedIn(false);
 						const newUser = {
 							name: name,
 							email: email,
@@ -60,8 +62,6 @@ const SignUp = () => {
 							.then((res) => res.json())
 							.then((data) => {
 								if (data.insertedId) {
-									setLoggedIn(false);
-									setUser(null);
 									setLoading(false);
 									navigate('/login');
 									Swal.fire(

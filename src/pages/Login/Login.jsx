@@ -9,7 +9,7 @@ import Swal from 'sweetalert2';
 const Login = () => {
 	// ! Variable definitions
 	const { setShowNavbar } = useContext(MetaContext);
-	const { setUser, setLoggedIn, setLoading, signInWithEmail } =
+	const { setUser, setRole, setLoggedIn, setLoading, signInWithEmail } =
 		useContext(AuthContext);
 	const navigate = useNavigate();
 
@@ -42,15 +42,20 @@ const Login = () => {
 		} else {
 			signInWithEmail(email, password)
 				.then((userCredential) => {
-					setLoading(false);
-					setLoggedIn(true);
-					setUser(userCredential.user);
-					Swal.fire({
-						icon: 'success',
-						title: 'Success!',
-						text: 'Logged in Successfully',
-					});
-					navigate(from);
+					fetch(`http://localhost:5000/users/role?email=${email}`)
+						.then((res) => res.json())
+						.then((data) => {
+							setLoading(false);
+							setLoggedIn(true);
+							setUser(userCredential.user);
+							setRole(data);
+							Swal.fire({
+								icon: 'success',
+								title: 'Success!',
+								text: 'Logged in Successfully',
+							});
+							navigate(from);
+						});
 				})
 				.catch((err) => {
 					const e = err.code
