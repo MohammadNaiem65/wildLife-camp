@@ -16,7 +16,7 @@ const Instructors = () => {
 		const unsubscribe = () => {
 			setLoading(true);
 			setShowNavbar(true);
-			fetch('http://localhost:5000/instructors')
+			fetch('http://localhost:5000/users/instructors')
 				.then((res) => res.json())
 				.then((data) => {
 					setInstructors(data);
@@ -47,8 +47,8 @@ const Instructors = () => {
 				{instructors.map((instructor) => (
 					<Instructor
 						key={instructor._id}
-						name={instructor.instructor_name}
-						img={instructor.instructor_image}
+						name={instructor.name}
+						img={instructor.img}
 						email={instructor.email}
 					/>
 				))}

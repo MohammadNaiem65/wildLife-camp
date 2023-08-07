@@ -39,7 +39,7 @@ const FeatureClasses = () => {
 					src={leftRays}
 					alt=''
 				/>
-				<h1 className='title-lg'>Instructors</h1>
+				<h1 className='title-lg'>Top Classes</h1>
 				<img
 					className='absolute -top-6 -right-12'
 					src={rightRays}

@@ -12,7 +12,7 @@ const FeatureInstructors = () => {
 	useEffect(() => {
 		const unsubscribe = () => {
 			setLoading(true);
-			fetch('http://localhost:5000/instructors/6')
+			fetch('http://localhost:5000/users/instructors/6')
 				.then((res) => res.json())
 				.then((data) => {
 					setLoading(false);
@@ -44,8 +44,8 @@ const FeatureInstructors = () => {
 				{instructors.map((instructor) => (
 					<Instructor
 						key={instructor._id}
-						name={instructor.instructor_name}
-						img={instructor.instructor_image}
+						name={instructor.name}
+						img={instructor.img}
 					/>
 				))}
 			</div>

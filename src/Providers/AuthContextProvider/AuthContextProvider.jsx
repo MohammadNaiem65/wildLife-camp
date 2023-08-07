@@ -15,9 +15,9 @@ const auth = getAuth(app);
 
 const AuthContextProvider = ({ children }) => {
 	// ! States definition
-	const [loading, setLoading] = useState(false);
-	const [user, setUser] = useState(null);
+	const [loading, setLoading] = useState(true);
 	const [loggedIn, setLoggedIn] = useState(false);
+	const [user, setUser] = useState(null);
 
 	// * Sign Up user
 	const signUpWithEmail = (email, password) => {
@@ -27,10 +27,15 @@ const AuthContextProvider = ({ children }) => {
 	// ! Manage user
 	useEffect(() => {
 		setLoading(true);
+		setLoggedIn(false);
 		onAuthStateChanged(auth, (newUser) => {
 			if (newUser) {
 				setUser(newUser);
 				setLoggedIn(true);
+				setLoading(false);
+			} else {
+				setUser(null);
+				setLoggedIn(false);
 				setLoading(false);
 			}
 		});

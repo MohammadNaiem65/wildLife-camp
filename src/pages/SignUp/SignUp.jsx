@@ -44,15 +44,33 @@ const SignUp = () => {
 						displayName: name,
 						photoURL: photo,
 					}).then(() => {
-						setLoggedIn(false);
-						setUser(null);
-						setLoading(false);
-						navigate('/login');
-						Swal.fire(
-							'Success!',
-							'Account Created Successfully!',
-							'success'
-						);
+						const newUser = {
+							name: name,
+							email: email,
+							img: photo,
+							role: 'student',
+						};
+						fetch('http://localhost:5000/users/role', {
+							method: 'POST',
+							headers: {
+								'Content-Type': 'application/json',
+							},
+							body: JSON.stringify(newUser),
+						})
+							.then((res) => res.json())
+							.then((data) => {
+								if (data.insertedId) {
+									setLoggedIn(false);
+									setUser(null);
+									setLoading(false);
+									navigate('/login');
+									Swal.fire(
+										'Success!',
+										'Account Created Successfully!',
+										'success'
+									);
+								}
+							});
 					});
 				})
 				.catch((err) => {

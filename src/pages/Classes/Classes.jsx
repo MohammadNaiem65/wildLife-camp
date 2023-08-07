@@ -35,7 +35,7 @@ const Classes = () => {
 					src={leftRays}
 					alt=''
 				/>
-				<h1 className='title-lg'>Instructors</h1>
+				<h1 className='title-lg'>Offered Classes</h1>
 				<img
 					className='absolute -top-7 -right-12'
 					src={rightRays}
