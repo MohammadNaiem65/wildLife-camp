@@ -42,7 +42,7 @@ const AClass = ({ c }) => {
 					}`}
 					disabled={seats ? false : true}
 					onClick={() => handleBuyClass(_id)}>
-					Buy
+					Add
 				</button>
 			</div>
 		</div>

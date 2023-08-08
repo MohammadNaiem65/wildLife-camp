@@ -8,7 +8,7 @@ const StudentRoutes = ({ children }) => {
 	if (role !== 'student') {
 		return;
 	} else {
-		return { children };
+		return children;
 	}
 };
 

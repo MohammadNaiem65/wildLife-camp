@@ -20,6 +20,7 @@ const Dashboard = () => {
 		<div className='container text-black'>
 			{/* Header */}
 			<div className='text-xl font-candal flex justify-evenly'>
+				{/* Left button */}
 				<Link
 					to={
 						role === 'student'
@@ -29,9 +30,9 @@ const Dashboard = () => {
 							: '/dashboard/admin/manage-classes'
 					}
 					onClick={() => setIsActivePrimaryButton(true)}
-					className={`w-1/2 h-10 flex justify-center items-center rounded-tl hover:bg-primary/70 hover:text-white peer ${
+					className={`w-1/2 h-12 flex justify-center items-center rounded-tl hover:bg-[#D0D0D0] hover:text-white peer ${
 						isActivePrimaryButton &&
-						'bg-primary/90 text-white rounded-tr'
+						'bg-[#9BA4B5] text-[#27374D] rounded-tr hover:bg-[#9BA4B5]'
 					} ${isSecondLinkHovered && 'rounded-tr-none'}
 					`}>
 					{role === 'student'
@@ -40,6 +41,7 @@ const Dashboard = () => {
 						? 'Add a Class'
 						: 'Manage Classes'}
 				</Link>
+				{/* Right button */}
 				<Link
 					to={
 						role === 'student'
@@ -51,9 +53,9 @@ const Dashboard = () => {
 					onMouseEnter={() => setIsSecondLinkHovered(true)}
 					onMouseLeave={() => setIsSecondLinkHovered(false)}
 					onClick={() => setIsActivePrimaryButton(false)}
-					className={`w-1/2 h-10 flex justify-center items-center rounded-tr peer-hover: hover:bg-primary/70 hover:text-white peer-hover:rounded-tl-none ${
+					className={`w-1/2 h-12 flex justify-center items-center rounded-tr peer-hover: hover:bg-[#D0D0D0] hover:text-white peer-hover:rounded-tl-none ${
 						isActivePrimaryButton ||
-						'bg-primary/90 text-white rounded-tl'
+						'bg-[#9BA4B5] text-[#27374D] rounded-tl hover:bg-[#9BA4B5]'
 					}
 					`}>
 					{role === 'student'
@@ -65,7 +67,7 @@ const Dashboard = () => {
 			</div>
 
 			<div
-				className={`bg-primary/90 ${
+				className={`bg-[#F5F5F5] p-black ${
 					isActivePrimaryButton ? 'rounded-tr' : 'rounded-tl'
 				} ${isSecondLinkHovered && 'rounded-tr-none'}`}>
 				<Outlet />

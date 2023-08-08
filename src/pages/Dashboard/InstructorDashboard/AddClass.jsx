@@ -1,5 +1,5 @@
-
 const AddClass = () => {
+    
     return (
         <div>
             add a class

@@ -8,7 +8,7 @@ const AdminRoutes = ({ children }) => {
 	if (role !== 'admin') {
 		return;
 	} else {
-		return { children };
+		return children;
 	}
 };
 

@@ -8,7 +8,7 @@ const InstructorRoutes = ({ children }) => {
 	if (role !== 'instructor') {
 		return;
 	} else {
-		return { children };
+		return children;
 	}
 };
 
