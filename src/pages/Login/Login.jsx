@@ -48,7 +48,7 @@ const Login = () => {
 							setLoading(false);
 							setLoggedIn(true);
 							setUser(userCredential.user);
-							setRole(data);
+							setRole(data.role);
 							Swal.fire({
 								icon: 'success',
 								title: 'Success!',
@@ -58,6 +58,7 @@ const Login = () => {
 						});
 				})
 				.catch((err) => {
+					setLoading(false);
 					const e = err.code
 						.split('.')[0]
 						.split('/')[1]

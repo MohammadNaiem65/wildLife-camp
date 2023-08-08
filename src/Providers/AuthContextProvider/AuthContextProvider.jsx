@@ -18,7 +18,7 @@ const AuthContextProvider = ({ children }) => {
 	const [loading, setLoading] = useState(true);
 	const [loggedIn, setLoggedIn] = useState(false);
 	const [user, setUser] = useState(null);
-	const [role, setRole] = useState(null);
+	const [role, setRole] = useState('student');
 
 	// * Sign Up user
 	const signUpWithEmail = (email, password) => {
@@ -37,7 +37,7 @@ const AuthContextProvider = ({ children }) => {
 					.then((res) => res.json())
 					.then((data) => {
 						setUser(existedUser);
-						setRole(data);
+						setRole(data.role);
 						setLoggedIn(true);
 						setLoading(false);
 					});

@@ -5,9 +5,11 @@ import Login from '../pages/Login/Login';
 import SignUp from '../pages/SignUp/SignUp';
 import Classes from '../pages/Classes/Classes';
 import Instructors from '../pages/Instructors/Instructors';
-import Dashboard from '../pages/Dashboard/Dashboard';
+import Dashboard from '../pages/Dashboard/Dashboard/Dashboard';
 import PrivateRoute from './PrivateRoute';
 import Error from '../pages/Error/Error';
+import RoleBasedRoute from './RoleBasedRoute';
+import SelectedClasses from '../pages/Dashboard/StudentDashboard/SelectedClasses';
 
 export const routes = createBrowserRouter([
 	{
@@ -34,6 +36,16 @@ export const routes = createBrowserRouter([
 						<Dashboard />
 					</PrivateRoute>
 				),
+				children: [
+					{
+						path: '/dashboard',
+						element: <RoleBasedRoute />,
+					},
+					{
+						path: '/dashboard/student/selected-classes',
+						element: <SelectedClasses />,
+					},
+				],
 			},
 			{
 				path: '/sign-up',
