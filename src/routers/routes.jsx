@@ -10,6 +10,14 @@ import PrivateRoute from './PrivateRoute';
 import Error from '../pages/Error/Error';
 import RoleBasedRoute from './RoleBasedRoute';
 import SelectedClasses from '../pages/Dashboard/StudentDashboard/SelectedClasses';
+import EnrolledClasses from './../pages/Dashboard/StudentDashboard/EnrolledClasses';
+import AddClass from '../pages/Dashboard/InstructorDashboard/AddClass';
+import MyClasses from './../pages/Dashboard/InstructorDashboard/MyClasses';
+import ManageClasses from '../pages/Dashboard/AdminDashboard/ManageClasses';
+import ManageUsers from './../pages/Dashboard/AdminDashboard/ManageUsers';
+import StudentRoutes from './StudentRoutes';
+import InstructorRoutes from './InstructorRoutes';
+import AdminRoutes from './AdminRoutes';
 
 export const routes = createBrowserRouter([
 	{
@@ -43,7 +51,51 @@ export const routes = createBrowserRouter([
 					},
 					{
 						path: '/dashboard/student/selected-classes',
-						element: <SelectedClasses />,
+						element: (
+							<StudentRoutes>
+								<SelectedClasses />
+							</StudentRoutes>
+						),
+					},
+					{
+						path: '/dashboard/student/enrolled-classes',
+						element: (
+							<StudentRoutes>
+								<EnrolledClasses />
+							</StudentRoutes>
+						),
+					},
+					{
+						path: '/dashboard/instructor/add-class',
+						element: (
+							<InstructorRoutes>
+								<AddClass />
+							</InstructorRoutes>
+						),
+					},
+					{
+						path: '/dashboard/instructor/my-classes',
+						element: (
+							<InstructorRoutes>
+								<MyClasses />
+							</InstructorRoutes>
+						),
+					},
+					{
+						path: '/dashboard/admin/manage-classes',
+						element: (
+							<AdminRoutes>
+								<ManageClasses />
+							</AdminRoutes>
+						),
+					},
+					{
+						path: '/dashboard/admin/manage-users',
+						element: (
+							<AdminRoutes>
+								<ManageUsers />
+							</AdminRoutes>
+						),
 					},
 				],
 			},

@@ -23,10 +23,10 @@ const Dashboard = () => {
 				<Link
 					to={
 						role === 'student'
-							? `/dashboard/student/selected-classes`
+							? '/dashboard/student/selected-classes'
 							: role === 'instructor'
-							? `/dashboard/instructor/add-a-class`
-							: `/dashboard/admin/manage-classes`
+							? '/dashboard/instructor/add-class'
+							: '/dashboard/admin/manage-classes'
 					}
 					onClick={() => setIsActivePrimaryButton(true)}
 					className={`w-1/2 h-10 flex justify-center items-center rounded-tl hover:bg-primary/70 hover:text-white peer ${
@@ -43,10 +43,10 @@ const Dashboard = () => {
 				<Link
 					to={
 						role === 'student'
-							? `/dashboard/student/selected-classes`
+							? '/dashboard/student/enrolled-classes'
 							: role === 'instructor'
-							? `/dashboard/instructor/add-a-class`
-							: `/dashboard/admin/manage-classes`
+							? '/dashboard/instructor/my-classes'
+							: '/dashboard/admin/manage-users'
 					}
 					onMouseEnter={() => setIsSecondLinkHovered(true)}
 					onMouseLeave={() => setIsSecondLinkHovered(false)}
@@ -66,9 +66,7 @@ const Dashboard = () => {
 
 			<div
 				className={`bg-primary/90 ${
-					isActivePrimaryButton
-						? 'rounded-tr'
-						: 'rounded-tl'
+					isActivePrimaryButton ? 'rounded-tr' : 'rounded-tl'
 				} ${isSecondLinkHovered && 'rounded-tr-none'}`}>
 				<Outlet />
 			</div>
