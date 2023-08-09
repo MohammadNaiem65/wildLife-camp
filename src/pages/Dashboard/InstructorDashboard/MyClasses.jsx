@@ -33,7 +33,7 @@ const MyClasses = () => {
 			confirmButtonText: 'Yes, delete it!',
 		}).then((result) => {
 			if (result.isConfirmed) {
-				fetch(`http://localhost:5000/instructor/classes/class/${id}`, {
+				fetch(`http://localhost:5000/classes/class/${id}`, {
 					method: 'DELETE',
 				})
 					.then((response) => response.json())

@@ -18,6 +18,7 @@ import ManageUsers from './../pages/Dashboard/AdminDashboard/ManageUsers';
 import StudentRoutes from './StudentRoutes';
 import InstructorRoutes from './InstructorRoutes';
 import AdminRoutes from './AdminRoutes';
+import EditClass from '../pages/Dashboard/InstructorDashboard/EditClass';
 
 export const routes = createBrowserRouter([
 	{
@@ -36,6 +37,18 @@ export const routes = createBrowserRouter([
 			{
 				path: '/instructors',
 				element: <Instructors />,
+			},
+			{
+				path: '/instructor/edit-classes/:id',
+				loader: ({ params }) =>
+					fetch(
+						`http://localhost:5000/classes/class/${params.id}`
+					),
+				element: (
+					<InstructorRoutes>
+						<EditClass />
+					</InstructorRoutes>
+				),
 			},
 			{
 				path: '/dashboard',

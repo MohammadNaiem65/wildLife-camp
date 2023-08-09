@@ -41,7 +41,8 @@ const AClass = ({ c }) => {
 							: 'disabled:bg-yellow-400 disabled:translate-y-0'
 					}`}
 					disabled={seats ? false : true}
-					onClick={() => handleBuyClass(_id)}>
+					onClick={() => handleBuyClass(_id)}
+					title={seats || 'No seats available'}>
 					Add
 				</button>
 			</div>

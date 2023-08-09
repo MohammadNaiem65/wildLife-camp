@@ -23,7 +23,9 @@ const MyClass = ({ myClass, order, handleRemoveClass }) => {
 				</span>
 			</span>
 			<div className='flex-1 text-center text-3xl flex justify-center gap-x-4'>
-				<Link className='hover:text-blue-200'>
+				<Link
+					to={`/instructor/edit-classes/${_id}`}
+					className='hover:text-blue-200'>
 					<BiEdit />
 				</Link>
 				<button
