@@ -30,9 +30,10 @@ const Dashboard = () => {
 							: '/dashboard/admin/manage-classes'
 					}
 					onClick={() => setIsActivePrimaryButton(true)}
-					className={`w-1/2 h-12 flex justify-center items-center rounded-tl hover:bg-[#D0D0D0] hover:text-white peer ${
-						isActivePrimaryButton &&
-						'bg-[#9BA4B5] text-[#27374D] rounded-tr hover:bg-[#9BA4B5]'
+					className={`w-1/2 h-12 text-[#27374D] flex justify-center items-center rounded-tl hover:text-white peer ${
+						isActivePrimaryButton
+							? 'bg-[#9BA4B5] rounded-tr hover:bg-[#9BA4B5]'
+							: 'hover:bg-[#D0D0D0]'
 					} ${isSecondLinkHovered && 'rounded-tr-none'}
 					`}>
 					{role === 'student'
@@ -53,9 +54,10 @@ const Dashboard = () => {
 					onMouseEnter={() => setIsSecondLinkHovered(true)}
 					onMouseLeave={() => setIsSecondLinkHovered(false)}
 					onClick={() => setIsActivePrimaryButton(false)}
-					className={`w-1/2 h-12 flex justify-center items-center rounded-tr peer-hover: hover:bg-[#D0D0D0] hover:text-white peer-hover:rounded-tl-none ${
-						isActivePrimaryButton ||
-						'bg-[#9BA4B5] text-[#27374D] rounded-tl hover:bg-[#9BA4B5]'
+					className={`w-1/2 h-12 flex justify-center items-center rounded-tr hover:text-white peer-hover:rounded-tl-none ${
+						isActivePrimaryButton
+							? 'hover:bg-[#D0D0D0] '
+							: 'bg-[#9BA4B5] text-[#27374D] rounded-tl hover:bg-[#9BA4B5]'
 					}
 					`}>
 					{role === 'student'
@@ -67,7 +69,7 @@ const Dashboard = () => {
 			</div>
 
 			<div
-				className={`bg-[#F5F5F5] p-black ${
+				className={` p-black ${
 					isActivePrimaryButton ? 'rounded-tr' : 'rounded-tl'
 				} ${isSecondLinkHovered && 'rounded-tr-none'}`}>
 				<Outlet />
