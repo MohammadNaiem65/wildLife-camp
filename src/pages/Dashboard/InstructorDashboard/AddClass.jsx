@@ -2,9 +2,12 @@ import { useContext } from 'react';
 import { AuthContext } from '../../../Providers/AuthContextProvider/AuthContextProvider';
 import leftRays from '../../../assets/rays-l.png';
 import rightRays from '../../../assets/rays-r.png';
+import Swal from 'sweetalert2';
+import { useNavigate } from 'react-router-dom';
 
 const AddClass = () => {
 	// ! Required variables
+	const navigate = useNavigate();
 	const { user } = useContext(AuthContext);
 
 	// ! Handle class submit
@@ -27,7 +30,26 @@ const AddClass = () => {
 			instructor_email: user.email,
 		};
 
-		console.log(classDetails);
+		fetch('http://localhost:5000/instructor/classes/class', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify(classDetails),
+		})
+			.then((res) => res.json())
+			.then((data) => {
+				if (data.insertedId) {
+					navigate('/dashboard/instructor/my-classes');
+					Swal.fire('Successful!', 'Added Successfully!', 'success');
+				} else {
+					Swal.fire({
+						icon: 'error',
+						title: 'Oops...',
+						text: 'Something went wrong!',
+					});
+				}
+			});
 	};
 
 	return (

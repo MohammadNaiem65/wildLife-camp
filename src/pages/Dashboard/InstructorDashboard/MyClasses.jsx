@@ -23,29 +23,41 @@ const MyClasses = () => {
 
 	// ! Handle remove a class
 	const handleRemoveClass = (id) => {
-		fetch(`http://localhost:5000/instructor/classes/class/${id}`, {
-			method: 'DELETE',
-		})
-			.then((response) => response.json())
-			.then((data) => {
-				if (data.deletedCount > 0) {
-					Swal.fire(
-						'Successful!',
-						'Deleted Successfully!',
-						'success'
-					);
-					const existedClasses = [...myClasses].filter(
-						(c) => c._id !== id
-					);
-					setClasses(existedClasses);
-				} else {
-					Swal.fire({
-						icon: 'error',
-						title: 'Oops...',
-						text: 'Something went wrong!',
+		Swal.fire({
+			title: 'Are you sure?',
+			text: 'You want to delete this item?',
+			icon: 'warning',
+			showCancelButton: true,
+			confirmButtonColor: '#3085d6',
+			cancelButtonColor: '#d33',
+			confirmButtonText: 'Yes, delete it!',
+		}).then((result) => {
+			if (result.isConfirmed) {
+				fetch(`http://localhost:5000/instructor/classes/class/${id}`, {
+					method: 'DELETE',
+				})
+					.then((response) => response.json())
+					.then((data) => {
+						if (data.deletedCount > 0) {
+							Swal.fire(
+								'Successful!',
+								'Deleted Successfully!',
+								'success'
+							);
+							const existedClasses = [...myClasses].filter(
+								(c) => c._id !== id
+							);
+							setClasses(existedClasses);
+						} else {
+							Swal.fire({
+								icon: 'error',
+								title: 'Oops...',
+								text: 'Something went wrong!',
+							});
+						}
 					});
-				}
-			});
+			}
+		});
 	};
 
 	return (
