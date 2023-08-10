@@ -16,6 +16,7 @@ const ManageClasses = () => {
 
 	return (
 		<div>
+			{/* Header */}
 			<div className='p-4 bg-[#9BA4B5] text-[#27374D] font-bree rounded'>
 				<div className='flex'>
 					<span className='flex-[2] text-center'>Class Details</span>
@@ -23,6 +24,7 @@ const ManageClasses = () => {
 					<span className='flex-1 ml-14 text-center'>Options</span>
 				</div>
 			</div>
+			{/* Body */}
 			<>
 				{classes?.map((c) => (
 					<ManageClass

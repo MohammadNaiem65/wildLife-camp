@@ -28,7 +28,6 @@ const MyClasses = () => {
 		unsubscribe();
 	}, []);
 
-
 	// ! Handle remove a class
 	const handleRemoveClass = (id) => {
 		Swal.fire({
@@ -70,6 +69,7 @@ const MyClasses = () => {
 
 	return (
 		<>
+			{/* Header */}
 			<div className='p-4 text-[#27374D] font-bree rounded bg-[#9BA4B5]'>
 				<div className='flex'>
 					<span className='flex-1 text-center'>Title</span>
@@ -78,6 +78,7 @@ const MyClasses = () => {
 					<span className='flex-1 text-center'>Options</span>
 				</div>
 			</div>
+			{/* Body */}
 			{myClasses.map((myClass, index) => (
 				<MyClass
 					key={myClass._id}

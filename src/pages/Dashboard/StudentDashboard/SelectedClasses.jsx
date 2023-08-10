@@ -24,12 +24,14 @@ const SelectedClasses = () => {
 
 	return (
 		<div className='font-bree text-[#27374D]'>
-			<div className='p-4 bg-[#9BA4B5] flex rounded'>
+			{/* Header */}
+			<div className='p-4 bg-[#9BA4B5] font-bree flex rounded'>
 				<span className='flex-[2] text-center'>Title</span>
 				<span className='flex-1 text-center'>Seats</span>
 				<span className='flex-1 text-center'>Price</span>
 				<span className='flex-1 text-center'>Options</span>
 			</div>
+			{/* Body */}
 			<>
 				{selectedClasses?.map((aClass) => (
 					<SelectedClass
