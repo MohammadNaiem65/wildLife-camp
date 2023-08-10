@@ -5,13 +5,14 @@ import ManageClass from './ManageClass';
 const ManageClasses = () => {
 	// ! Variable definitions
 	const [classes, setClasses] = useState([]);
+	const [refresh, setRefresh] = useState(false);
 
 	// Get the classes
 	useEffect(() => {
 		fetch('http://localhost:5000/classes/all')
 			.then((res) => res.json())
 			.then((data) => setClasses(data));
-	}, []);
+	}, [refresh]);
 
 	return (
 		<div>
@@ -24,7 +25,12 @@ const ManageClasses = () => {
 			</div>
 			<>
 				{classes?.map((c) => (
-					<ManageClass key={c._id} c={c} />
+					<ManageClass
+						key={c._id}
+						c={c}
+						refresh={refresh}
+						setRefresh={setRefresh}
+					/>
 				))}
 			</>
 		</div>

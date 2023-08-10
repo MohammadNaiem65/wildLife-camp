@@ -29,6 +29,7 @@ const AddClass = () => {
 			img: img,
 			attended: 0,
 			instructor_email: user.email,
+			instructor_img: user.photoURL,
 		};
 
 		fetch('http://localhost:5000/instructor/classes/class', {
