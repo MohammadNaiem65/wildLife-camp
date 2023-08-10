@@ -3,7 +3,7 @@ import { RiDeleteBin6Fill } from 'react-icons/ri';
 import { Link } from 'react-router-dom';
 
 const MyClass = ({ myClass, order, handleRemoveClass }) => {
-	// ! Required variables
+	// ! Variable definitions
 	const { name, attended, status, _id } = myClass;
 
 	return (

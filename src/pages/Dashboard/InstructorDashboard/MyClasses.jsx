@@ -15,11 +15,19 @@ const MyClasses = () => {
 				`http://localhost:5000/instructor/classes?email=${user.email}`
 			)
 				.then((res) => res.json())
-				.then((data) => setClasses(data));
+				.then((data) => setClasses(data))
+				.catch(() => {
+					Swal.fire({
+						icon: 'error',
+						title: 'Oops...',
+						text: 'Something went wrong!',
+					});
+				});
 		};
 
 		unsubscribe();
 	}, []);
+
 
 	// ! Handle remove a class
 	const handleRemoveClass = (id) => {

@@ -24,9 +24,9 @@ const Dashboard = () => {
 				<Link
 					to={
 						role === 'student'
-							? '/dashboard/student/selected-classes'
+							? '/dashboard/student/enrolled-classes'
 							: role === 'instructor'
-							? '/dashboard/instructor/add-class'
+							? '/dashboard/instructor/my-classes'
 							: '/dashboard/admin/manage-classes'
 					}
 					onClick={() => setIsActivePrimaryButton(true)}
@@ -37,18 +37,18 @@ const Dashboard = () => {
 					} ${isSecondLinkHovered && 'rounded-tr-none'}
 					`}>
 					{role === 'student'
-						? 'Selected Classes'
+						? 'Enrolled Classes'
 						: role === 'instructor'
-						? 'Add a Class'
+						? 'My Classes'
 						: 'Manage Classes'}
 				</Link>
 				{/* Right button */}
 				<Link
 					to={
 						role === 'student'
-							? '/dashboard/student/enrolled-classes'
+							? '/dashboard/student/selected-classes'
 							: role === 'instructor'
-							? '/dashboard/instructor/my-classes'
+							? '/dashboard/instructor/add-class'
 							: '/dashboard/admin/manage-users'
 					}
 					onMouseEnter={() => setIsSecondLinkHovered(true)}
@@ -61,9 +61,9 @@ const Dashboard = () => {
 					}
 					`}>
 					{role === 'student'
-						? 'Enrolled Classes'
+						? 'Selected Classes'
 						: role === 'instructor'
-						? 'My Classes'
+						? 'Add a Class'
 						: 'Manage Users'}
 				</Link>
 			</div>
@@ -74,40 +74,6 @@ const Dashboard = () => {
 				} ${isSecondLinkHovered && 'rounded-tr-none'}`}>
 				<Outlet />
 			</div>
-
-			{/* <div className='p-3 even:bg-primary/20 font-poppins rounded flex justify-between items-center'>
-				<div className='w-2/6 flex gap-x-3'>
-					<img
-						className='w-28 aspect-video rounded'
-						src={img}
-						alt=''
-						loading='lazy'
-					/>
-					<div>
-						<h4 className='text-[1.4rem] font-bubblegum'>{name}</h4>
-						<p>
-							<span className='font-semibold'>Category:</span>
-							<span>{category}</span>
-						</p>
-					</div>
-				</div>
-				<div className='w-2/6'>
-					<p>
-						<span className='font-semibold'>Seller:</span>{' '}
-						{seller_name}
-					</p>
-					<p>
-						<span className='font-semibold'>
-							Available Quantity:{' '}
-						</span>
-						{available_quantity}
-					</p>
-				</div>
-				<p className='text-lg font-semibold'>${price}</p>
-				<Link to={`/toy/${_id}`} className='btn btn-primary'>
-					Details
-				</Link>
-			</div> */}
 		</div>
 	);
 };

@@ -89,6 +89,8 @@ const SignUp = () => {
 					});
 				});
 		}
+
+		form.reset();
 	};
 
 	return (

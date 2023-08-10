@@ -2,9 +2,12 @@ import { useLoaderData, useNavigate } from 'react-router-dom';
 import leftRays from '../../../assets/rays-l.png';
 import rightRays from '../../../assets/rays-r.png';
 import Swal from 'sweetalert2';
+import { useContext } from 'react';
+import { AuthContext } from '../../../Providers/AuthContextProvider/AuthContextProvider';
 
 const EditClass = () => {
 	// ! Variable definitions
+	const { setLoading } = useContext(AuthContext);
 	const navigate = useNavigate();
 	const classData = useLoaderData();
 	const { _id, name, price, img } = classData;
@@ -12,6 +15,7 @@ const EditClass = () => {
 	// ! Handle class update
 	const handleClassUpdate = (e) => {
 		e.preventDefault();
+		setLoading(true);
 		const form = e.target;
 
 		const title = form.title.value || name;
@@ -36,18 +40,28 @@ const EditClass = () => {
 			.then((data) => {
 				if (data.modifiedCount > 0) {
 					navigate('/dashboard/instructor/my-classes');
+					setLoading(false);
 					Swal.fire(
 						'Successful!',
 						'Updated Successfully!',
 						'success'
 					);
 				} else {
+					setLoading(false);
 					Swal.fire({
 						icon: 'error',
 						title: 'Oops...',
 						text: 'Something went wrong!',
 					});
 				}
+			})
+			.catch(() => {
+				setLoading(false);
+				Swal.fire({
+					icon: 'error',
+					title: 'Oops...',
+					text: 'Something went wrong!',
+				});
 			});
 	};
 

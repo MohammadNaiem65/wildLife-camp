@@ -1,8 +1,8 @@
 import { useContext } from 'react';
 import { AuthContext } from '../Providers/AuthContextProvider/AuthContextProvider';
-import SelectedClasses from '../pages/Dashboard/StudentDashboard/SelectedClasses';
-import AddClass from './../pages/Dashboard/InstructorDashboard/AddClass';
 import ManageClasses from './../pages/Dashboard/AdminDashboard/ManageClasses';
+import EnrolledClasses from '../pages/Dashboard/StudentDashboard/EnrolledClasses';
+import MyClasses from '../pages/Dashboard/InstructorDashboard/MyClasses';
 
 const RoleBasedRoute = () => {
 	// ! Variable definitions
@@ -10,9 +10,9 @@ const RoleBasedRoute = () => {
 
 	// * Send to the right route
 	if (role === 'student') {
-		return <SelectedClasses />;
+		return <EnrolledClasses />;
 	} else if (role === 'instructor') {
-		return <AddClass />;
+		return <MyClasses />;
 	} else {
 		return <ManageClasses />;
 	}

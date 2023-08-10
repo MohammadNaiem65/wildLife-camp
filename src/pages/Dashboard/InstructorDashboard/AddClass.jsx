@@ -8,11 +8,12 @@ import { useNavigate } from 'react-router-dom';
 const AddClass = () => {
 	// ! Required variables
 	const navigate = useNavigate();
-	const { user } = useContext(AuthContext);
+	const { user, setLoading } = useContext(AuthContext);
 
 	// ! Handle class submit
 	const handleClassSubmit = (e) => {
 		e.preventDefault();
+		setLoading(true);
 		const form = e.target;
 
 		const title = form.title.value;
@@ -40,15 +41,25 @@ const AddClass = () => {
 			.then((res) => res.json())
 			.then((data) => {
 				if (data.insertedId) {
+					setLoading(false);
 					navigate('/dashboard/instructor/my-classes');
 					Swal.fire('Successful!', 'Added Successfully!', 'success');
 				} else {
+					setLoading(false);
 					Swal.fire({
 						icon: 'error',
 						title: 'Oops...',
 						text: 'Something went wrong!',
 					});
 				}
+			})
+			.catch(() => {
+				setLoading(false);
+				Swal.fire({
+					icon: 'error',
+					title: 'Oops...',
+					text: 'Something went wrong!',
+				});
 			});
 	};
 
