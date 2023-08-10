@@ -16,6 +16,12 @@ const SelectedClasses = () => {
 			.then((data) => setSelectedClasses(data));
 	}, []);
 
+	// ! Update selected classes
+	const updateSelectedClasses = (id) => {
+		const restClasses = selectedClasses.filter((c) => c._id !== id);
+		setSelectedClasses(restClasses);
+	};
+
 	return (
 		<div className='font-bree text-[#27374D]'>
 			<div className='p-4 bg-[#9BA4B5] flex rounded'>
@@ -26,7 +32,11 @@ const SelectedClasses = () => {
 			</div>
 			<>
 				{selectedClasses?.map((aClass) => (
-					<SelectedClass key={aClass._id} aClass={aClass} />
+					<SelectedClass
+						key={aClass._id}
+						aClass={aClass}
+						updateSelectedClasses={updateSelectedClasses}
+					/>
 				))}
 			</>
 		</div>

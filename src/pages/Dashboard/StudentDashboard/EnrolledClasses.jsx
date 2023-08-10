@@ -15,8 +15,6 @@ const EnrolledClasses = () => {
 			.then((data) => setEnrolledClasses(data));
 	}, []);
 
-	console.log(enrolledClasses);
-
 	return <div>enrolled classes: {enrolledClasses.length}
     </div>;
 };
