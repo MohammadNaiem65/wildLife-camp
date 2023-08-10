@@ -18,7 +18,7 @@ const AClass = ({ c }) => {
 			);
 		} else {
 			fetch(
-				`http://localhost:5000/student/class/select/${id}?email=${user.email}`,
+				`https://wild-life-camp-server.vercel.app/student/class/select/${id}?email=${user.email}`,
 				{
 					method: 'PATCH',
 				}

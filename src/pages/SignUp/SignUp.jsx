@@ -52,13 +52,16 @@ const SignUp = () => {
 							img: photo,
 							role: 'student',
 						};
-						fetch('http://localhost:5000/users/role', {
-							method: 'POST',
-							headers: {
-								'Content-Type': 'application/json',
-							},
-							body: JSON.stringify(newUser),
-						})
+						fetch(
+							'https://wild-life-camp-server.vercel.app/users/role',
+							{
+								method: 'POST',
+								headers: {
+									'Content-Type': 'application/json',
+								},
+								body: JSON.stringify(newUser),
+							}
+						)
 							.then((res) => res.json())
 							.then((data) => {
 								if (data.insertedId) {

@@ -32,13 +32,16 @@ const AddClass = () => {
 			instructor_img: user.photoURL,
 		};
 
-		fetch('http://localhost:5000/instructor/classes/class', {
-			method: 'POST',
-			headers: {
-				'Content-Type': 'application/json',
-			},
-			body: JSON.stringify(classDetails),
-		})
+		fetch(
+			'https://wild-life-camp-server.vercel.app/instructor/classes/class',
+			{
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json',
+				},
+				body: JSON.stringify(classDetails),
+			}
+		)
 			.then((res) => res.json())
 			.then((data) => {
 				if (data.insertedId) {

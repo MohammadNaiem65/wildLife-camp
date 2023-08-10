@@ -9,7 +9,7 @@ const ManageClasses = () => {
 
 	// Get the classes
 	useEffect(() => {
-		fetch('http://localhost:5000/classes/all')
+		fetch('https://wild-life-camp-server.vercel.app/classes/all')
 			.then((res) => res.json())
 			.then((data) => setClasses(data));
 	}, [refresh]);

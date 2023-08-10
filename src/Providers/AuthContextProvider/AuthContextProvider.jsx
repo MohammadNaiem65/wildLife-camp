@@ -32,7 +32,7 @@ const AuthContextProvider = ({ children }) => {
 		onAuthStateChanged(auth, (existedUser) => {
 			if (existedUser) {
 				fetch(
-					`http://localhost:5000/users/role?email=${existedUser.email}`
+					`https://wild-life-camp-server.vercel.app/users/role?email=${existedUser.email}`
 				)
 					.then((res) => res.json())
 					.then((data) => {

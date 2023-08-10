@@ -9,7 +9,7 @@ const ManageUsers = () => {
 
 	// Get the users
 	useEffect(() => {
-		fetch('http://localhost:5000/admin/users/all')
+		fetch('https://wild-life-camp-server.vercel.app/admin/users/all')
 			.then((res) => res.json())
 			.then((data) => setUsers(data));
 	}, [refresh]);

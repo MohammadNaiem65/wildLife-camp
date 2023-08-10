@@ -16,7 +16,7 @@ const Classes = () => {
 		const unsubscribe = () => {
 			setLoading(true);
 			setShowNavbar(true);
-			fetch('http://localhost:5000/classes')
+			fetch('https://wild-life-camp-server.vercel.app/classes')
 				.then((res) => res.json())
 				.then((data) => {
 					setClasses(data);

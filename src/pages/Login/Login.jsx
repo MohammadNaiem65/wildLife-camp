@@ -42,7 +42,9 @@ const Login = () => {
 		} else {
 			signInWithEmail(email, password)
 				.then((userCredential) => {
-					fetch(`http://localhost:5000/users/role?email=${email}`)
+					fetch(
+						`https://wild-life-camp-server.vercel.app/users/role?email=${email}`
+					)
 						.then((res) => res.json())
 						.then((data) => {
 							setLoading(false);
@@ -75,7 +77,7 @@ const Login = () => {
 				});
 		}
 
-		form.reset()
+		form.reset();
 	};
 
 	return (

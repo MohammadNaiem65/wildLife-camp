@@ -29,7 +29,7 @@ const EditClass = () => {
 			status: 'pending',
 		};
 
-		fetch(`http://localhost:5000/classes/class/${_id}`, {
+		fetch(`https://wild-life-camp-server.vercel.app/classes/class/${_id}`, {
 			method: 'PATCH',
 			headers: {
 				'Content-Type': 'application/json',

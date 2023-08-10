@@ -15,7 +15,7 @@ const FeatureClasses = () => {
 	useEffect(() => {
 		const unsubscribe = () => {
 			setLoading(true);
-			fetch('http://localhost:5000/classes/6')
+			fetch('https://wild-life-camp-server.vercel.app/classes/6')
 				.then((res) => res.json())
 				.then((data) => {
 					setClasses(data);

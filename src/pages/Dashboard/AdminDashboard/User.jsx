@@ -4,7 +4,6 @@ const User = ({ user, refresh, setRefresh }) => {
 	// ! Variable definitions
 	const { _id, img, name, email, role } = user;
 
-
 	// Handle update role
 	const handleUpdateRole = (e) => {
 		// Get role
@@ -18,9 +17,12 @@ const User = ({ user, refresh, setRefresh }) => {
 		}
 
 		// ! Update role
-		fetch(`http://localhost:5000/admin/user/role/${_id}?role=${newRole}`, {
-			method: 'PATCH',
-		})
+		fetch(
+			`https://wild-life-camp-server.vercel.app/admin/user/role/${_id}?role=${newRole}`,
+			{
+				method: 'PATCH',
+			}
+		)
 			.then((res) => res.json())
 			.then((data) => {
 				if (data.modifiedCount > 0 || data.deletedCount > 0) {

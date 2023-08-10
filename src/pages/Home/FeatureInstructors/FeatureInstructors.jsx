@@ -12,7 +12,9 @@ const FeatureInstructors = () => {
 	useEffect(() => {
 		const unsubscribe = () => {
 			setLoading(true);
-			fetch('http://localhost:5000/users/instructors/6')
+			fetch(
+				'https://wild-life-camp-server.vercel.app/users/instructors/6'
+			)
 				.then((res) => res.json())
 				.then((data) => {
 					setLoading(false);

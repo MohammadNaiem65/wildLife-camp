@@ -12,7 +12,7 @@ const EnrolledClasses = () => {
 	// ! Get selected classes
 	useEffect(() => {
 		fetch(
-			`http://localhost:5000/student/classes/enrolled?email=${user.email}`
+			`https://wild-life-camp-server.vercel.app/student/classes/enrolled?email=${user.email}`
 		)
 			.then((res) => res.json())
 			.then((data) => setEnrolledClasses(data));

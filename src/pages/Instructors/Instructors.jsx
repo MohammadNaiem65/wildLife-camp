@@ -16,7 +16,7 @@ const Instructors = () => {
 		const unsubscribe = () => {
 			setLoading(true);
 			setShowNavbar(true);
-			fetch('http://localhost:5000/users/instructors')
+			fetch('https://wild-life-camp-server.vercel.app/users/instructors')
 				.then((res) => res.json())
 				.then((data) => {
 					setInstructors(data);

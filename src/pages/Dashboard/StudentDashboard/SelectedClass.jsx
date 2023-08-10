@@ -11,7 +11,7 @@ const SelectedClass = ({ aClass, updateSelectedClasses }) => {
 	// ! Handle class enrollment
 	const handleEnrollment = (id) => {
 		fetch(
-			`http://localhost:5000/student/class/enroll/${id}?email=${user.email}`,
+			`https://wild-life-camp-server.vercel.app/student/class/enroll/${id}?email=${user.email}`,
 			{ method: 'PATCH' }
 		)
 			.then((res) => res.json())
@@ -42,7 +42,7 @@ const SelectedClass = ({ aClass, updateSelectedClasses }) => {
 
 	const handleCancellation = (id) => {
 		fetch(
-			`http://localhost:5000/student/classes/selected/remove/${id}?email=${user.email}`,
+			`https://wild-life-camp-server.vercel.app/student/classes/selected/remove/${id}?email=${user.email}`,
 			{ method: 'PATCH' }
 		)
 			.then((res) => res.json())

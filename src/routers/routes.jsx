@@ -41,7 +41,9 @@ export const routes = createBrowserRouter([
 			{
 				path: '/instructor/edit-classes/:id',
 				loader: ({ params }) =>
-					fetch(`http://localhost:5000/classes/class/${params.id}`),
+					fetch(
+						`https://wild-life-camp-server.vercel.app/classes/class/${params.id}`
+					),
 				element: (
 					<InstructorRoutes>
 						<EditClass />

@@ -17,7 +17,7 @@ const ManageClass = ({ c, refresh, setRefresh }) => {
 
 	const handleStatusUpdate = (status) => {
 		fetch(
-			`http://localhost:5000/admin/class/${_id}/status?status=${status}`,
+			`https://wild-life-camp-server.vercel.app/admin/class/${_id}/status?status=${status}`,
 			{ method: 'PATCH' }
 		)
 			.then((res) => res.json())

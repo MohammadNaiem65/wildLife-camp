@@ -12,7 +12,7 @@ const MyClasses = () => {
 	useEffect(() => {
 		const unsubscribe = () => {
 			fetch(
-				`http://localhost:5000/instructor/classes?email=${user.email}`
+				`https://wild-life-camp-server.vercel.app/instructor/classes?email=${user.email}`
 			)
 				.then((res) => res.json())
 				.then((data) => setClasses(data))
@@ -40,9 +40,12 @@ const MyClasses = () => {
 			confirmButtonText: 'Yes, delete it!',
 		}).then((result) => {
 			if (result.isConfirmed) {
-				fetch(`http://localhost:5000/classes/class/${id}`, {
-					method: 'DELETE',
-				})
+				fetch(
+					`https://wild-life-camp-server.vercel.app/classes/class/${id}`,
+					{
+						method: 'DELETE',
+					}
+				)
 					.then((response) => response.json())
 					.then((data) => {
 						if (data.deletedCount > 0) {
@@ -79,16 +82,18 @@ const MyClasses = () => {
 				</div>
 			</div>
 			{/* Body */}
-			{myClasses.length
-				? myClasses.map((myClass, index) => (
-						<MyClass
-							key={myClass._id}
-							myClass={myClass}
-							order={index + 1}
-							handleRemoveClass={handleRemoveClass}
-						/>
-				  ))
-				: <p className='font-bree'>No Data Found</p>}
+			{myClasses.length ? (
+				myClasses.map((myClass, index) => (
+					<MyClass
+						key={myClass._id}
+						myClass={myClass}
+						order={index + 1}
+						handleRemoveClass={handleRemoveClass}
+					/>
+				))
+			) : (
+				<p className='font-bree'>No Data Found</p>
+			)}
 		</>
 	);
 };

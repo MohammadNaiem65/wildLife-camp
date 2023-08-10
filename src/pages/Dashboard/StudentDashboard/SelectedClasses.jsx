@@ -10,7 +10,7 @@ const SelectedClasses = () => {
 	// ! Get selected classes
 	useEffect(() => {
 		fetch(
-			`http://localhost:5000/student/classes/selected?email=${user.email}`
+			`https://wild-life-camp-server.vercel.app/student/classes/selected?email=${user.email}`
 		)
 			.then((res) => res.json())
 			.then((data) => setSelectedClasses(data));
