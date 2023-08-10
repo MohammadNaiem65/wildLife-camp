@@ -1,6 +1,50 @@
+import Swal from 'sweetalert2';
+
 const User = ({ user, refresh, setRefresh }) => {
 	// ! Variable definitions
-	const { img, name, email, role } = user;
+	const { _id, img, name, email, role } = user;
+
+
+	// Handle update role
+	const handleUpdateRole = (e) => {
+		// Get role
+		let newRole;
+		if (e.target.innerText === 'Student') {
+			newRole = 'student';
+		} else if (e.target.innerText === 'Instructor') {
+			newRole = 'instructor';
+		} else {
+			newRole = 'admin';
+		}
+
+		// ! Update role
+		fetch(`http://localhost:5000/admin/user/role/${_id}?role=${newRole}`, {
+			method: 'PATCH',
+		})
+			.then((res) => res.json())
+			.then((data) => {
+				if (data.modifiedCount > 0 || data.deletedCount > 0) {
+					Swal.fire({
+						icon: 'success',
+						title: 'Successful',
+					});
+					setRefresh(!refresh);
+				} else {
+					Swal.fire({
+						icon: 'error',
+						title: 'Oops...',
+						text: 'Something went wrong!',
+					});
+				}
+			})
+			.catch(() => {
+				Swal.fire({
+					icon: 'error',
+					title: 'Oops...',
+					text: 'Something went wrong!',
+				});
+			});
+	};
 
 	return (
 		<div className='p-5 font-bree flex items-center rounded odd:bg-[#9BA4B5]'>
@@ -22,19 +66,26 @@ const User = ({ user, refresh, setRefresh }) => {
 			<div className='flex-1 text-slate-800 flex'>
 				<button
 					className='w-28 block mx-auto px-5 py-2 text-white rounded-full bg-green-500 duration-300 hover:-translate-y-2 disabled:bg-green-800 disabled:translate-y-0'
-					// onClick={() => handleStatusUpdate('approved')}
-					disabled={role === 'student' ? true : false}>
+					onClick={handleUpdateRole}
+					disabled={
+						role === 'student' || role === 'admin' ? true : false
+					}>
 					Student
 				</button>
 				<button
 					className='w-28 block mx-auto px-5 py-2 text-white rounded-full bg-red-500 duration-300 hover:-translate-y-2 disabled:bg-red-800 disabled:translate-y-0'
-					// onClick={() => handleStatusUpdate('declined')}
-					disabled={role === 'instructor' ? true : false}>
+					onClick={handleUpdateRole}
+					disabled={
+						role === 'instructor' || role === 'admin' ? true : false
+					}>
 					Instructor
 				</button>
 				<button
 					className='w-28 block mx-auto px-5 py-2 text-white rounded-full bg-blue-400 duration-300 hover:-translate-y-2 disabled:bg-blue-800 disabled:translate-y-0'
-					disabled={role === 'admin' ? true : false}>
+					onClick={handleUpdateRole}
+					disabled={
+						role === 'admin' || role === 'admin' ? true : false
+					}>
 					Admin
 				</button>
 			</div>

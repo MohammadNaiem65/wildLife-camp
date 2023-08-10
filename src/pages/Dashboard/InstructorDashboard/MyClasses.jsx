@@ -79,14 +79,16 @@ const MyClasses = () => {
 				</div>
 			</div>
 			{/* Body */}
-			{myClasses.map((myClass, index) => (
-				<MyClass
-					key={myClass._id}
-					myClass={myClass}
-					order={index + 1}
-					handleRemoveClass={handleRemoveClass}
-				/>
-			))}
+			{myClasses.length
+				? myClasses.map((myClass, index) => (
+						<MyClass
+							key={myClass._id}
+							myClass={myClass}
+							order={index + 1}
+							handleRemoveClass={handleRemoveClass}
+						/>
+				  ))
+				: <p className='font-bree'>No Data Found</p>}
 		</>
 	);
 };

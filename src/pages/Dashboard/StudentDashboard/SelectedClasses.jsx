@@ -33,13 +33,15 @@ const SelectedClasses = () => {
 			</div>
 			{/* Body */}
 			<>
-				{selectedClasses?.map((aClass) => (
-					<SelectedClass
-						key={aClass._id}
-						aClass={aClass}
-						updateSelectedClasses={updateSelectedClasses}
-					/>
-				))}
+				{selectedClasses.length
+					? selectedClasses.map((aClass) => (
+							<SelectedClass
+								key={aClass._id}
+								aClass={aClass}
+								updateSelectedClasses={updateSelectedClasses}
+							/>
+					  ))
+					: selectedClasses.message}
 			</>
 		</div>
 	);

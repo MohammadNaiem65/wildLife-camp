@@ -39,9 +39,11 @@ const EnrolledClasses = () => {
 
 			{/* Classes */}
 			<div className='mt-10 grid grid-cols-2 gap-5'>
-				{enrolledClasses?.map((c) => (
-					<EnrolledClass key={c._id} c={c} />
-				))}
+				{enrolledClasses.length
+					? enrolledClasses.map((c) => (
+							<EnrolledClass key={c._id} c={c} />
+					  ))
+					: enrolledClasses.message}
 			</div>
 		</>
 	);
