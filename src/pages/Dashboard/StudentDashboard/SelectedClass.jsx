@@ -40,6 +40,37 @@ const SelectedClass = ({ aClass, updateSelectedClasses }) => {
 			});
 	};
 
+	const handleCancellation = (id) => {
+		fetch(
+			`http://localhost:5000/student/classes/selected/remove/${id}?email=${user.email}`,
+			{ method: 'PATCH' }
+		)
+			.then((res) => res.json())
+			.then((data) => {
+				if (data.modifiedCount > 0) {
+					updateSelectedClasses(_id);
+					Swal.fire(
+						'Successful!',
+						'Cancelled Successfully!',
+						'success'
+					);
+				} else {
+					Swal.fire({
+						icon: 'error',
+						title: 'Oops...',
+						text: 'Something went wrong!',
+					});
+				}
+			})
+			.catch(() => {
+				Swal.fire({
+					icon: 'error',
+					title: 'Oops...',
+					text: 'Something went wrong!',
+				});
+			});
+	};
+
 	return (
 		<div className='p-5 flex items-center rounded odd:bg-[#9BA4B5]'>
 			<div className='flex-[2] flex items-center'>
@@ -64,7 +95,9 @@ const SelectedClass = ({ aClass, updateSelectedClasses }) => {
 					onClick={() => handleEnrollment(_id)}>
 					Enroll
 				</button>
-				<button className='text-4xl hover:text-red-600'>
+				<button
+					className='text-4xl hover:text-red-600'
+					onClick={() => handleCancellation(_id)}>
 					<RiDeleteBin6Fill />
 				</button>
 			</div>
